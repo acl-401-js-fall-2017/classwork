@@ -2,6 +2,11 @@
 
 Use NodeJS to develop JavaScript outside of the browser. 
 
+## Course Environment
+
+* [Professional Software Development](https://docs.google.com/presentation/d/13k3gYd8hwIGfKdqECBEvk44UmkdVcsDuO2Tq9UIToVk/edit?usp=sharing)
+* Frame of reference is a software development team, not academia
+
 ## Core Pieces of our Dev Environment
 
 ### NodeJS
