@@ -36,6 +36,7 @@ is most straight-forward to test.
     * Assertion Library
         * Fail? throw an error
         * Pass? continue on...
+    * Order of assertions is `actual`, `expected`
 
 ### Config
 
@@ -60,7 +61,7 @@ Greeting app
 What are responsibilities?
 
 * Has core "library"
-* CLI app
+* CLI App?
 * Web?
 * Package?
 
