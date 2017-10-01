@@ -2,15 +2,14 @@
   "name": "greeting-app",
   "version": "1.0.1",
   "description": "",
-  "main": "src/greeter.js",
+  "main": "lib/greeter.js",
   "scripts": {
-    "test": "mocha tests",
+    "test": "mocha",
     "start": "npm run test -- -w"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.2.0",
-    "mocha": "^3.4.2"
+
   }
 }

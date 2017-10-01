@@ -1,0 +1,19 @@
+{
+  "name": "class02_npm-build",
+  "version": "1.0.0",
+  "description": "## Questions and Feedback * Coding     * Indentation needs to be perfect all the time      * Avoid comments that label sections of code * Read the `LAB.md` for requirement * Order of assertions is `actual`, `expected` * Don't \"prefill\" files or functions - work incrementally * Draw out the problem domain and solution * On your own fork, fine to merge local and push (don't need a PR) * Lingering when stuck... * ?",
+  "main": "functions.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests",
+    "start": "npm test -- -w"
+  },
+  "author": "Marty Nelson <marty@martypdx.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2"
+  }
+}
