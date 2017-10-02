@@ -80,12 +80,12 @@ is most straight-forward to test.
 
 ### Config
 
-[Essentials listed in lab](https://github.com/cfpdx-401JS-summer-2017/submit-401-way/blob/master/LAB.md)
+[Essentials listed in lab](https://github.com/acl-401-js-fall-2017/submit-401-way/blob/master/LAB.md)
 
 ## Submit 401 Lab
 
-[Exercise](https://github.com/cfpdx-401JS-summer-2017/submit-401-way/)
+[Exercise](https://github.com/acl-401-js-fall-2017/submit-401-way/)
 
 ## `forEach` demo
 
-[Setup for today's lab](https://github.com/cfpdx-401JS-summer-2017/array-methods)
+[Setup for today's lab](https://github.com/acl-401-js-fall-2017/array-methods)
