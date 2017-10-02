@@ -1,6 +1,6 @@
 
-function greet() {
-
+function greet(name) {
+    return `hello ${name}`;
 }
 
 it('greets with name', () => {
