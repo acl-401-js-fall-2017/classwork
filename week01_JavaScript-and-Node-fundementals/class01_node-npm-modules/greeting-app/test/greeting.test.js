@@ -1,8 +1,5 @@
 const assert = require('assert');
-
-function greet(name) {
-    return `hello ${name}`;
-}
+const greet = require('../lib/greet');
 
 it('greets with name', () => {
     const greeting = greet('meow-meow');
