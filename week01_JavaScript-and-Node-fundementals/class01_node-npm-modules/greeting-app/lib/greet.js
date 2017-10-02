@@ -1,5 +1,5 @@
 
-function greet(name) {
+function greet(name = 'stranger') {
     return `hello ${name}`;
 }
 
