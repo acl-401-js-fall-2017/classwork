@@ -1,3 +1,4 @@
+const assert = require('assert');
 
 function greet(name) {
     return `hello ${name}`;
@@ -5,7 +6,5 @@ function greet(name) {
 
 it('greets with name', () => {
     const greeting = greet('meow-meow');
-    if(greeting !== 'hello meow-meow') {
-        throw new Error(`expected 'hello meow-meow', but got ${greeting}`);
-    }
+    assert.equal(greeting, 'hello meow-meow');
 });
