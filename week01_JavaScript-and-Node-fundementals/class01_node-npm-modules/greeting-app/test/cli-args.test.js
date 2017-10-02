@@ -2,8 +2,7 @@ const assert = require('assert');
 
 function getArgs(args) {
     return {
-        name: args[2],
-        foo: 'foo'
+        name: args[2]
     };
 }
 
