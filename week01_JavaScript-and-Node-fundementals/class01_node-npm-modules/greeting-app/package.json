@@ -10,6 +10,6 @@
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "MIT",
   "devDependencies": {
-
+    "mocha": "^3.5.3"
   }
 }
