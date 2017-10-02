@@ -5,9 +5,44 @@ Use NodeJS to develop JavaScript outside of the browser.
 ## Course Environment
 
 * [Professional Software Development](https://docs.google.com/presentation/d/13k3gYd8hwIGfKdqECBEvk44UmkdVcsDuO2Tq9UIToVk/edit?usp=sharing)
-* Frame of reference is a software development team, not academia
+* Frame of reference is a software development team, not academia!
 
 ## Core Pieces of our Dev Environment
+
+* NodeJS
+* npm
+* Testing (mocha)
+
+## DEMO
+
+Greeting app
+
+What are responsibilities?
+
+* Has core "library"
+* CLI App?
+* Web?
+* Package?
+* What is a(n)... 
+
+  > ...app?
+   
+  > ...program?
+
+  > ...process?
+
+* What were you calling when you made an AJAX "call"?
+* What is a server?
+
+### Key Points
+
+* A process is "unit of execution" controlled by the Operating System (OS)
+    * CPU time
+    * Memory space
+* Distributed Systems
+    * The total set of processes involved in the overall "system"
+    * Client, Server [, Database]
+* Some systems are "Headless" - pure logic and execution, no UI
 
 ### NodeJS
 
@@ -46,29 +81,6 @@ is most straight-forward to test.
 ### Config
 
 [Essentials listed in lab](https://github.com/cfpdx-401JS-summer-2017/submit-401-way/blob/master/LAB.md)
-
-## Improving Code
-
-* (Literal) Code Cleanliness (indentation, consistent style, `const`/`let`, no scrappy bits o' commented out stuff)
-* Whitespace, phrasing
-* [Naming](http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/)
-* Modularity - SRP "One Concern"
-* Duplication in code or concept
-
-Use commits and branches. Key thing is to give yourself an **UNDO**. Some improvement experiments fail and we roll back.
-
-Keep asking questions about what this means!
-
-## DEMO
-
-Greeting app
-
-What are responsibilities?
-
-* Has core "library"
-* CLI App?
-* Web?
-* Package?
 
 ## Submit 401 Lab
 
