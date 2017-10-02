@@ -5,7 +5,9 @@ const greet = require('./lib/greet');
 
 // create a server that responds with greeting
 const server = http.createServer((req, res) => {
-    res.end(greet(req.url));
+    // split path and take first part after "/" as name:
+    const name = req.url.split('/')[1];
+    res.end(greet(name));
 });
 
 // "starts" the server on port 3000;
