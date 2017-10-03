@@ -1,32 +1,86 @@
-# Class 01 `npm`, Interfaces (API), Library Design, Function Definition versus Execution
+# Class 02 `npm`, Function Definition versus Execution
 
 ## Questions and Feedback
-* Coding
-    * Indentation needs to be perfect all the time 
-    * Avoid comments that label sections of code
-* Read the `LAB.md` for requirement
-* Order of assertions is `actual`, `expected`
-* Don't "prefill" files or functions - work incrementally
-* Draw out the problem domain and solution
-* On your own fork, fine to merge local and push (don't need a PR)
-* Lingering when stuck...
 * ?
 
 ## Learning Objectives
 
+* Process and OS, distributed systems
+* Install Dependencies for a project
 * Setup and run a build scripts 
+* Use different patterns for exporting from modules:
+    * value or reference
+    * object literal with props
+    * factory function
+    * revealing module
+    * class
+* Include pre and post `npm` scripts
  
-## Agenda
+## OS Process
 
-### Common Issues
-* Coded solutions should not be hard-coded to one value or use
-* WIP
-    * Don't expand, limit
-* Library Design
-    * Not seeing the interface
-    * code in tests vs code in implementation
-* Function definition vs invocation/execution
-* Don't know JavaScript array methods
+### Questions
+
+* What is a(n)... 
+
+  > ...app?
+   
+  > ...program?
+
+  > ...process?
+
+* What were you calling when you made an AJAX "call"?
+* What is a server?
+
+### Key Points
+
+* A process is "unit of execution" controlled by the Operating System (OS)
+    * CPU time
+    * Memory space
+    * What else do we need from the OS?
+        * File Storage
+        * Networking
+        * (Access to Devices like keyboard and mouse and screen)
+* Distributed Systems
+    * The total set of processes involved in the overall "system"
+    * Client, Server [, Database]
+* Notes:
+    * Some systems are "Headless" - pure logic and execution, no UI
+    * npm packages add code but run in our process
+
+### Variables
+
+* Variables are for data we want to use again (share)
+* (Functions are shared behavior)
+
+
+#### DEMO
+
+Mystery of the looped closure
+
+#### Primitive Values vs References
+
+* Primitive values stored in variables **are** the value of the variable
+* Object-based values are stored as **references** in the variable table
+* (strings are weird, treat as primitive values)
+
+#### Assignment
+
+* Variables (and arguments) are assigned a value via `=`
+* `const` will not be reassigned
+* `let` can be reassigned
+* Use `const` be default
+* Use `let` to communicate the variable **will be** reassigned
+
+#### DEMO
+
+* Pass primitive value to function
+* Pass object reference to function
+* Closure is not 
+
+#### Closures
+
+* Solve the mystery of the looped closure
+* Closures point to variable table, not value!
 
 ### Importing and Exporting Modules
 
@@ -62,7 +116,7 @@
 
 #### ES6 Modules
 
-We'll be using CJS for first couple of weeks. Then switch to ES6 Modules
+We'll be using CJS for first couple of weeks. Then switch to ES6 Modules for second half of course
 
 ### Build System
 
@@ -70,7 +124,8 @@ We'll be using CJS for first couple of weeks. Then switch to ES6 Modules
     * Developer Sanity
     * Consistency of Process
 * Project Organization
-    * `./lib` or `./src` folder
+    * `./lib` - backend
+    * `./src` - frontend
 
 ### `npm`
 * Package Management
@@ -97,38 +152,8 @@ _using `npm` and the project `package.json` file_.
         * starting server
         * build the project
 
-#### Publish on npm
+### Mocha setup
 
-1. Make a npm account (I like to use same username as github)
-    * After you create run:
-    ```
-    > npm adduser
-    ```
-    and follow prompts
-1. Make sure your package.json:
-    1. Proper name (kebob-case)
-    2. A semver version
-    3. `main` property to entry point (what should be the module used
-    when somebody requires your package)
-
-### Function Definition vs Execution
-
-* In JavaScript, function are (literally) objects and can be passed around and shared.
-* A function as an object can be thought of as a function definition, waiting to be called (invoked)
-* Closure variables are stored as part of the definition (see Chrome)
-* Adding parenthesis: `myFunction()`
-    * "calls" or "invokes" or "executes" the function with the supplied arguments.
-    * The place (in the code) where a function is called is called the "call site"
-    * Code inside the function is only run when the function is called.
-* Functions are sometimes called methods, particularly when called as a property of an object:
-   ```js
-   someObj.greet();
-   ```
-
-* Types of functions:
-    * function declaration
-    * function expression
-        * anonymous
-        * named
-    * arrow function expression
-
+* Mocha
+    * `only` and `skip`
+    * `beforeEach` and friends

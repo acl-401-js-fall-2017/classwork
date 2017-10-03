@@ -1,4 +1,3 @@
-
 function greet(name = 'stranger') {
     return `hello ${name}`;
 }
