@@ -19,4 +19,14 @@ describe('cool stringifier', () => {
         assert.equal(stringifier.sentence, 'cool so is This');
     });
     
+        it('uppercase all things', () => {
+            stringifier.shout();
+            assert.equal(stringifier.sentence, 'THIS IS SO COOL');
+        });
+
+        it('chains methods', () => {
+            stringifier.reverseWords().shout();
+            assert.equal(stringifier.sentence, 'SIHT SI OS LOOC');        
+        });
+    });
 });
