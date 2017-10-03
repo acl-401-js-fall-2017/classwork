@@ -3,22 +3,24 @@ const CoolStringifier = require('../lib/cool-stringifier');
 
 describe('cool stringifier', () => {
 
-    const sentence = 'This is so cool';
-    let stringifier = null;
-    beforeEach(() => {
-        stringifier = new CoolStringifier(sentence);
-    });
+    describe('basic operations', () => {
 
-    it('reverse each word', () => {
-        stringifier.reverseWords();
-        assert.equal(stringifier.sentence, 'sihT si os looc');
-    });
+        const sentence = 'This is so cool';
+        let stringifier = null;
+        beforeEach(() => {
+            stringifier = new CoolStringifier(sentence);
+        });
 
-    it('reverses word order', () => {
-        stringifier.reverseWordOrder();
-        assert.equal(stringifier.sentence, 'cool so is This');
-    });
-    
+        it('reverse each word', () => {
+            stringifier.reverseWords();
+            assert.equal(stringifier.sentence, 'sihT si os looc');
+        });
+
+        it('reverses word order', () => {
+            stringifier.reverseWordOrder();
+            assert.equal(stringifier.sentence, 'cool so is This');
+        });
+
         it('uppercase all things', () => {
             stringifier.shout();
             assert.equal(stringifier.sentence, 'THIS IS SO COOL');
@@ -27,6 +29,14 @@ describe('cool stringifier', () => {
         it('chains methods', () => {
             stringifier.reverseWords().shout();
             assert.equal(stringifier.sentence, 'SIHT SI OS LOOC');        
+        });
+    });
+    
+    describe('edge cases', () => {
+        it('outer test', () => {
+            const stringifier = new CoolStringifier('');
+            stringifier.shout();
+            assert.equal(stringifier.sentence, '');            
         });
     });
 });
