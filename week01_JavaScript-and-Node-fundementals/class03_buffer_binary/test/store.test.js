@@ -29,10 +29,17 @@ describe('store', () => {
     it('removes an object', () => {
         const cat = { name: 'garfield', type: 'orange tabby' };
         const saved = store.save(cat);
+        
         // remove returns  { removed: true }
         const status = store.remove(saved._id);
-        assert.ok(status.removed);
+        assert.equal(status.removed, true);
+
         const got = store.get(saved._id);
         assert.equal(got, null);
+    });
+
+    it('returns { removed: false } when object to remove not exists', () => {
+        const status = store.remove('bad id');
+        assert.equal(status.removed, false);
     });
 });

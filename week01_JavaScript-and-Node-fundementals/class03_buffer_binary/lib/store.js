@@ -19,6 +19,7 @@ module.exports = class Store {
 
     remove(id) {
         const index = this.data.findIndex(item => item._id === id);
+        if(index === -1) return { removed: false };
         this.data.splice(index, 1);
         return { removed: true };
     }
