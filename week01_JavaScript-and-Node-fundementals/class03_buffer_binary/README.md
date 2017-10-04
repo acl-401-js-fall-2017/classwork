@@ -5,24 +5,13 @@
 
 ## Learning Objectives
 
-* Debug in VSCode
-* Control scope in testing
+* Model Object Store
 * Explain what binary data means
 * Ditto Hex
 * Read, write, and manipulate encoded binary data using the Buffer class
 * Continue focusing on library design...
 
 ## Agenda
-
-### Tooling
-* Debug node in vscode
-    * Process
-    * File
-    * Mocha
-* Mocha
-    * `only` and `skip`
-    * `beforeEach` and friends
-* `npm` and `pre`
 
 ### Binary Data
 * What is meaning?
