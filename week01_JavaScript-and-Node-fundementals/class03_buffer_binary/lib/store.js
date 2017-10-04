@@ -13,6 +13,13 @@ module.exports = class Store {
     }
 
     get(id) {
-        return this.data.find(item => item._id === id);
+        const found = this.data.find(item => item._id === id);
+        return found || null;
+    }
+
+    remove(id) {
+        const index = this.data.findIndex(item => item._id === id);
+        this.data.splice(index, 1);
+        return { removed: true };
     }
 };
