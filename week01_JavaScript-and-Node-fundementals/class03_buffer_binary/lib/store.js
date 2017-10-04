@@ -23,4 +23,8 @@ module.exports = class Store {
         this.data.splice(index, 1);
         return { removed: true };
     }
+
+    getAll() {
+        return this.data.slice();
+    }
 };
