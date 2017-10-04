@@ -1,7 +1,7 @@
 # Class 03 Buffer and Binary Data
 
 ## Questions and Feedback
-* ?
+* [arrow-functions](https://github.com/martypdx/workshop-promises-fat-arrows/blob/master/fat-arrows.md)
 
 ## Learning Objectives
 
