@@ -1,0 +1,20 @@
+{
+  "name": "class04_architecture-async",
+  "version": "1.0.0",
+  "description": "## Questions and Feedback * ?",
+  "main": "event-loop.js",
+  "scripts": {
+    "lib": "lib",
+    "test": "mocha",
+    "start": "npm run test -- -w"
+  },
+  "author": "Marty Nelson <marty@martypdx.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^4.0.0"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2"
+  }
+}

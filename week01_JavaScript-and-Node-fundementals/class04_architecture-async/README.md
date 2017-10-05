@@ -1,13 +1,14 @@
 # Class 04 Node Architecture and Asynchronous Programming
 
 ## Questions and Feedback
-* buffer.slice() === same buffer memory
+* ?
 
 ## Learning Objectives
 * Have a working model of asynchronous programming in NodeJS
-* Write and utilize asychronous functions effectively
-
-
+* Write and utilize asynchronous callback functions effectively:
+	* When calling node asynchronous APIs
+	* When exposing a function
+* Utilize the filesystem
 
 ## Agenda
 
@@ -17,7 +18,7 @@
 * Node Event Loop
     * Basic node architecture 101
     * v8 + event-loop + os-lib
-    * Thread - actual "thread of execuation"
+    * Thread - actual "thread of execution"
     * Event loop explained
     * JavaScript single threaded event model
 * Demo: `event-loop.js`
@@ -28,10 +29,13 @@
 	* return values?
 	* Propagate errors?
 * Node callback pattern `callback(err, result)`
-* Some hardfast rules:
+* Some hard rules:
     1. You can't create asynchronicity with just js
-    2. If your building functionality ontop of asychronous API's, 
+    1. If your building functionality on top of asynchronous APIs, 
     then your library must be asynchronous!
+    1. If a function or method uses asynchronous activity to complete its work, 
+    then that function must have an asynchronous interface (takes a callback)!
+* [Function passing patterns in JavaScript](https://github.com/martypdx/workshop-promises-fat-arrows/blob/master/async-js-patterns.md)
 * Demo
 	* Mocha `done`
 		* test parameter
