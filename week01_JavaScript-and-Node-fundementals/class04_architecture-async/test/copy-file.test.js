@@ -1,5 +1,6 @@
 const assert = require('assert');
 const fs = require('fs');
+const path = require('path');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 
@@ -8,8 +9,8 @@ const copyFile = require('../lib/copy-file');
 describe('copy file', () => {
 
     const copyFileDir = './test/copy-file';
-    const source = copyFileDir + '/copy-me.txt';
-    const dest = copyFileDir + '/copied.txt';
+    const source = path.join(copyFileDir, '/copy-me.txt');
+    const dest = path.join(copyFileDir, '/copied.txt');
     const sourceContents = 'I am the source file';
 
     beforeEach(done => {
