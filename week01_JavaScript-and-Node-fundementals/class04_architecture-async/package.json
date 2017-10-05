@@ -5,7 +5,8 @@
   "main": "event-loop.js",
   "scripts": {
     "lib": "lib",
-    "test": "mocha",
+    "test": "MOCHA_REPORTER_STACK_EXCLUDE=**/** mocha --reporter mocha-better-spec-reporter",
+    "test:callstack": "mocha",
     "start": "npm run test -- -w"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
+    "mocha-better-spec-reporter": "^3.1.0",
     "rimraf": "^2.6.2"
   }
 }
