@@ -18,9 +18,7 @@ class CoolStringifier {
     }
 
     reverseWordOrder() {
-        this.sentence = this.getWords()
-            .reverse()
-            .join(' ');
+        this.sentence = this.getWords().reverse().join(' ');
         return this;
     }
 

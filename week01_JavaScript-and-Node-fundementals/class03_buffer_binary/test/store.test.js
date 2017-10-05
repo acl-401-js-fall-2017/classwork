@@ -32,7 +32,7 @@ describe('store', () => {
             const cat = { name: 'garfield', type: 'orange tabby' };
             const saved = store.save(cat);
 
-            // remove returns  { removed: true }
+            // remove returns:  { removed: true }
             const status = store.remove(saved._id);
             assert.equal(status.removed, true);
 
@@ -78,6 +78,4 @@ describe('store', () => {
             assert.equal(store.getAll().length, 2);
         });
     });
-
-
 });
