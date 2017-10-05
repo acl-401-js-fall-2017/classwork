@@ -36,4 +36,25 @@ describe('copy directory', () => {
         });
     });
 
+
+    it('copies the directory (showing parallel read test)', done => {
+        // call the function we are testing
+        copyDir(source, dest, err => {
+            // did it fail? if so test over with failure
+            if(err) return done(err);
+
+            fs.readdir(source, callback);
+            fs.readdir(dest, callback);
+            
+            const dirFiles = [];
+            function callback(err, files) {
+                if(err) return done(err);
+                dirFiles.push(files);
+                if(dirFiles.length === 2) {
+                    assert.deepEqual(dirFiles[0], dirFiles[1]);
+                    done();                    
+                }
+            }
+        });
+    });
 });
