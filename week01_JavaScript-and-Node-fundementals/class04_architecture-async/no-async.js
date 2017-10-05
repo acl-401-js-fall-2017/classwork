@@ -1,4 +1,3 @@
 
-console.log('A');
-console.log('B');
-console.log('C');
+console.log('DIRNAME', __dirname);
+console.log('FILENAME', __filename);
