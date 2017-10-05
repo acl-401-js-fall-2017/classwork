@@ -8,7 +8,7 @@ const copyFile = require('../lib/copy-file');
 
 describe('copy file', () => {
 
-    const copyFileDir = './test/copy-file';
+    const copyFileDir = path.join(__dirname, 'copy-file');
     const source = path.join(copyFileDir, '/copy-me.txt');
     const dest = path.join(copyFileDir, '/copied.txt');
     const sourceContents = 'I am the source file';
