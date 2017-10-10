@@ -21,5 +21,7 @@
     "mocha": "^4.0.0",
     "nodemon": "^1.12.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cowsay-browser": "^1.1.8"
+  }
 }

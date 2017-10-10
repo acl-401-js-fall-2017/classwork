@@ -1,8 +1,15 @@
+// chai is an assertion library.
+// it has goodies (testing methods) above and beyond node's assert.
+// BUT, it also has a plugin architecture and we can
+// use chai-http to:
+// 1) Start our server (and stop when tests are done)
+// 2) Exposes superagent "wired" to our server
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../lib/app');
 chai.use(chaiHttp);
 const assert = chai.assert;
+
+const app = require('../lib/app');
 
 const request = chai.request(app);
 
