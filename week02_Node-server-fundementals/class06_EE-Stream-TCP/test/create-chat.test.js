@@ -71,6 +71,12 @@ describe.only('chat app server', () => {
         openClient((err, client1) => {
             openClient((err, client2) => {
                 openClient((err, client3) => {
+                    
+                    client2.on('data', data => {
+                        if(data === 'user2: has joined\n') return;                        
+                        assert.ok(!/sekrit/.test(data), 'should not received');
+                    });
+
                     client3.on('data', data => {
                         assert.equal(data, [
                             'user3: has joined\n',
@@ -78,10 +84,7 @@ describe.only('chat app server', () => {
                         ].join(''));
                         done();
                     });
-                    client2.on('data', data => {
-                        if(data === 'user2: has joined\n') return;                        
-                        assert.ok(!/sekrit/.test(data), 'should not received');
-                    });
+
                     client1.write('@dm:user3 Hello sekrit');
                 });
             });
