@@ -36,6 +36,12 @@ module.exports = function createChat() {
                     }
                     break;
                 }
+                case 'dm': {
+                    const to = chat.getClient(action.arg);
+                    if(!to) return;
+                    to.write(`${client.username}: ${action.text}` + '\n');
+                    break;
+                }
                 default:
                     break;
                 }
