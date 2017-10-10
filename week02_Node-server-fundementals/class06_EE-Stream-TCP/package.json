@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "npm run lint",
+    "//pretest": "npm run lint",
     "test": "mocha",
     "start": "npm run test -- -w"
   },
