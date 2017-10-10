@@ -43,13 +43,13 @@ An envelop with a letter (or a postcard)
 	* Authorization tokens
 
 ### REST use cases:
-* `GET /todos` = return the list of todos (Read)
-* `GET /todos/:id` (example: `/todos/123`) = return specific todo,
+* `GET /pandas` = return the list of pandas (Read)
+* `GET /pandas/:id` (example: `/pandas/123`) = return specific todo,
 often used for a detail view (Read)
-* `POST /todos` = create a new todo (and return object with id) (Create)
-* `PUT /todos/:id` = create or replace todo with this specific id (Update)
-* `PATCH /todos/:id` = update the supplied properties on the todo with specific id (Partial Update)
-* `DELETE /todos/:id` = delete the specified todo (Delete)
+* `POST /pandas` = create a new todo (and return object with id) (Create)
+* `PUT /pandas/:id` = create or replace todo with this specific id (Update)
+* `PATCH /pandas/:id` = update the supplied properties on the todo with specific id (Partial Update)
+* `DELETE /pandas/:id` = delete the specified todo (Delete)
 
 ### Query Parameters
 
