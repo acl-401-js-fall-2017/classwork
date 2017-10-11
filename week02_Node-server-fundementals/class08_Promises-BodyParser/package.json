@@ -6,8 +6,9 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "mocha",
-    "start": "npm run test -- -w"
+    "test": "npm run mocha",
+    "mocha": "mocha",
+    "start": "npm run mocha -- -w"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "MIT",
