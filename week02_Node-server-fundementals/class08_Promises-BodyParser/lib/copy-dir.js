@@ -1,31 +1,25 @@
-const fs = require('fs');
+const { readdir, mkdir } = require('./fsp');
 const path = require('path');
+
 const copyFile = require('./copy-file');
 
-module.exports = function copyDir(sourceDir, destDir, callback) {
+module.exports = function copyDir(sourceDir, destDir) {
 
-    fs.readdir(sourceDir, directories);
-    fs.mkdir(destDir, directories);
-
-    let files = null;
-    let count = 0;
-
-    function directories(err, sourceFiles) {
-        if(err) return callback(err);
-        if(sourceFiles) files = sourceFiles;
-        count++;
-        if(count < 2) return; 
-
-        let fileCount = files.length;
-        files.forEach(file => {
+    return Promise.all([
+        readdir(sourceDir),
+        mkdir(destDir)
+    ])
+    // array destructuring:
+    // use position in [] to indicate the index you want
+    .then(([sourceFiles]) => {
+        
+        const arrayOfCopyFilePromises = sourceFiles.map(file => {
             const sourceFile = path.join(sourceDir, file);
             const destFile = path.join(destDir, file);
-
-            copyFile(sourceFile, destFile, err => {
-                if(err) return callback(err);
-                fileCount--;
-                if(fileCount === 0) callback();
-            });
+            return copyFile(sourceFile, destFile);
         });
-    }
+        
+        return Promise.all(arrayOfCopyFilePromises);
+
+    });
 };

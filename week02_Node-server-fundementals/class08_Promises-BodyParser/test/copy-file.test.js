@@ -1,8 +1,10 @@
 const assert = require('assert');
-const fs = require('fs');
+const { writeFile, readFile } = require('../lib/fsp');
 const path = require('path');
-const rimraf = require('rimraf');
-const mkdirp = require('mkdirp');
+
+const promisify = require('util').promisify;
+const rimraf = promisify(require('rimraf'));
+const mkdirp = promisify(require('mkdirp'));
 
 const copyFile = require('../lib/copy-file');
 
@@ -13,33 +15,23 @@ describe('copy file', () => {
     const dest = path.join(copyFileDir, '/copied.txt');
     const sourceContents = 'I am the source file';
 
-    beforeEach(done => {
-        rimraf(copyFileDir, err => {
-            if(err) return done(err);
-            mkdirp(copyFileDir, err => {
-                if(err) return done(err);
-                fs.writeFile(source, sourceContents, err => {
-                    if(err) return done(err);
-                    done();
-                });
+    beforeEach(() => {
+        return rimraf(copyFileDir)
+            .then(() => {
+                return mkdirp(copyFileDir);
+            })
+            .then(() => {
+                return writeFile(source, sourceContents);
             });
-        });
     });
 
-    it('copies a file', done => {
-        // call our asynchronous function
-        copyFile(source, dest, err => {
-            // did it fail?
-            if(err) return done(err);
-            // read the dest file
-            fs.readFile(dest, 'utf8', (err, data) => {
-                // did that fail?
-                if(err) return done(err);
-                // make sure contents are correct
+    it('copies a file', () => {
+        return copyFile(source, dest)
+            .then(() => {
+                return readFile(dest, 'utf8');
+            })
+            .then(data => {
                 assert.equal(data, sourceContents);
-                // finally!!! tell mocha this test is done
-                done();
             });
-        });
     });
 });
