@@ -12,14 +12,12 @@ module.exports = function copyDir(sourceDir, destDir) {
     // array destructuring:
     // use position in [] to indicate the index you want
     .then(([sourceFiles]) => {
-        
-        const arrayOfCopyFilePromises = sourceFiles.map(file => {
+        const copyFilePromises = sourceFiles.map(file => {
             const sourceFile = path.join(sourceDir, file);
             const destFile = path.join(destDir, file);
             return copyFile(sourceFile, destFile);
         });
         
-        return Promise.all(arrayOfCopyFilePromises);
-
+        return Promise.all(copyFilePromises);
     });
 };
