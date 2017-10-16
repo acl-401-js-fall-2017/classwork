@@ -78,6 +78,8 @@ addons:
 	* `res.send()` and `res.json()`
 		* sets headers
 	* EXERCISE: Echo server
+		* Review [HTTP URL](http://bl.ocks.org/abernier/3070589)
+		* Using `/:id` is a way to "capture" (define) parameters, not provide them
 * order matters
 * `app.use()`
 	* static
