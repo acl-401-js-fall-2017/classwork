@@ -1,23 +1,14 @@
 const express = require('express');
+const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
-app.get('/crews', (req, res) => {
-    res.send(`GET /crews ${JSON.stringify(req.query)}`);
-});
+const publicDir = './public';
+app.use(express.static(publicDir));
+app.use(bodyParser.json());
 
-// crews/banana/foo/mango
-app.get('/crews/:one/foo/:two', (req, res) => {
-    // POJO Plain Old JavaScript Object
-    res.send({
-        routePath: '/crews/:one/foo/:two',
-        method: 'get',
-        params: req.params,
-        query: req.query
-    });
-});
+const crews = require('./routes/crews');
+app.use('/api/crews', crews);
 
-app.post('/bar', (req, res) => {
-    res.end('POST /bar');
-});
 
 module.exports = app;
