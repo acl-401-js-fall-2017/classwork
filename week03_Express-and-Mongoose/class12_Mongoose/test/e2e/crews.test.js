@@ -1,30 +1,48 @@
 const request = require('./request');
-const mongodb = require('../lib/mongodb');
+const mongoose = require('mongoose');
 const assert = require('chai').assert;
 
 describe('crews API', () => {
     
-    beforeEach(() => mongodb.db.dropDatabase());
+    beforeEach(() => mongoose.connection.dropDatabase());
+
+    const strawHats = { 
+        name: 'Straw Hats', 
+        homebase: { bodyOfWater: 'East Blue' },
+        gold: 10
+    };
 
     it('saves with id', () => {
-        const strawHats = { name: 'Straw Hats', ship: 'Sunny' };
-        return request.post('/crews')
+
+        return request.post('/api/crews')
             .send(strawHats)
             .then(res => {
                 const crew = res.body;
-                assert.ok(crew._id, 'Missing Id');
+                assert.ok(crew._id);
                 assert.equal(crew.name, strawHats.name);
             });
     });
 
+    it('fails on save with validation errors', () => {
+        return request.post('/api/crews')
+            .send({})
+            .then(
+                () => { throw new Error('Unexpected successful response'); },
+                err => {
+                    assert.equal(err.status, 400);    
+                    const body = err.response.body;
+                    assert.ok(Object.keys(body.errors).length);
+                }
+            );
+    });
+
     it('get by id', () => {
-        const strawHats = { name: 'Straw Hats', ship: 'Sunny' };
         let crew = null;
-        return request.post('/crews')
+        return request.post('/api/crews')
             .send(strawHats)
             .then(res => {
                 crew = res.body;
-                return request.get(`/crews/${crew._id}`);
+                return request.get(`/api/crews/${crew._id}`);
             })
             .then(res => {
                 assert.deepEqual(res.body, crew);
@@ -32,7 +50,7 @@ describe('crews API', () => {
     });
 
     it('get by id returns 404 for bad id', () => {
-        return request.get('/crews/59dfeaeb083bf9beecc97ce8')
+        return request.get('/api/crews/59dfeaeb083bf9beecc97ce8')
             .then(
                 () => { throw new Error('Unexpected successful response'); },
                 err => {
@@ -42,17 +60,16 @@ describe('crews API', () => {
     });
 
     it('delete by id', () => {
-        const strawHats = { name: 'Straw Hats', ship: 'Sunny' };
         let crew = null;
-        return request.post('/crews')
+        return request.post('/api/crews')
             .send(strawHats)
             .then(res => {
                 crew = res.body;
-                return request.delete(`/crews/${crew._id}`);
+                return request.delete(`/api/crews/${crew._id}`);
             })
             .then(res => {
                 assert.deepEqual(res.body, { removed: true });
-                return request.get(`/crews/${crew._id}`);                
+                return request.get(`/api/crews/${crew._id}`);                
             })
             .then(
                 () => { throw new Error('Unexpected successful response'); },
@@ -63,13 +80,14 @@ describe('crews API', () => {
     });
 
     it('gets all crews', () => {
-        const crews = [
-            { name: 'Straw Hats', ship: 'Sunny' },
-            { name: 'Foxxy Pirates', ship: 'Coolio' }
-        ];
+        const foxxy = {
+            name: 'Foxxy Pirates',
+            homebase: { bodyOfWater: 'North Blue' },
+            gold: 100000
+        };
 
-        const posts = crews.map(crew => {
-            return request.post('/crews')
+        const posts = [strawHats, foxxy].map(crew => {
+            return request.post('/api/crews')
                 .send(crew)
                 .then(res => res.body);
         });
@@ -78,7 +96,7 @@ describe('crews API', () => {
         return Promise.all(posts)
             .then(_saved => {
                 saved = _saved;
-                return request.get('/crews');
+                return request.get('/api/crews');
             })
             .then(res => {
                 assert.deepEqual(res.body, saved);
