@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Express</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1>Hello Express</h1>
+    <ul id="crews">
+
+    </ul>
+
+    <script>
+        const ul = document.getElementById('crews');
+
+        fetch('/api/crews')
+            .then(response => response.json())
+            .then(crews => {
+                crews.forEach(crew => {
+                    const li = document.createElement('li');
+                    li.innerText = crew.name;
+                    ul.appendChild(li);
+                });
+            });
+
+    </script>
+</body>
+</html>
