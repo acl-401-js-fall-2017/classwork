@@ -7,15 +7,18 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "mocha",
-    "start": "npm run test -- -w"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "author": "Marty Nelson <marty@martypdx.com>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^4.8.0",
-    "mocha": "^4.0.0"
+    "mocha": "^4.0.0",
+    "nodemon": "^1.12.1"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "mongoose": "^4.12.3"
   }
 }

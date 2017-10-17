@@ -9,6 +9,7 @@
 validate data
 
 ### Mongoose
+* Why?
 * use `npm i mongoose -S` (no need for `mongodb`)
 * Mongoose Schemas
 	* Defining “Properties” (aka paths)
