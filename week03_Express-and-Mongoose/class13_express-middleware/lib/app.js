@@ -2,13 +2,11 @@ const express = require('express');
 const app = express();
 // const morgan = require('morgan');
 const logger = require('./utils/logger');
+const createAuth = require('./utils/cathentication');
 
 app.use(logger());
 
-app.use((req, res, next) => {
-    if(req.query.access_token === 'meow') next();
-    else res.status(401).send('user not authorized');
-});
+app.use(createAuth('meow'));
 
 app.use(express.static('./public'));
 
