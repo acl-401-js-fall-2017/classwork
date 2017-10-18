@@ -9,7 +9,7 @@ const defaultUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/pirates
 
 module.exports = function(dbUri = defaultUri) {
     
-    const promise = mongoose.connect(dbUri);
+    const promise = mongoose.connect(dbUri, { useMongoClient: true });
     
     // CONNECTION EVENTS
     // When successfully connected
