@@ -25,7 +25,7 @@ express error handling middleware functions
 * Ambiguous based on broad history
 * Larger architectural meaning - middle between API and db
 * For our purposes, think about the middle between request and response
-* Basic "handler": `( res, req[, next] ) => { ... }`
+* Basic "handler": `( req, res[, next] ) => { ... }`
 * Middleware is flow to find one or more handlers
 
 #### All starts with `app.use()`
