@@ -13,7 +13,6 @@ const pirates = require('./routes/pirates');
 app.use('/api/pirates', pirates);
 
 app.get('/flag', (req, res) => {
-    req.foo.bar;
     res.send(`
         <img src="http://www.elizabethan-era.org.uk/images/calico-jack-rackhams-pirate-flag.jpg">
     `);
