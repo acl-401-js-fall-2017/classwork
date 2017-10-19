@@ -1,0 +1,58 @@
+# Class 14 Model Relationships
+
+## Questions and Issues?
+
+* Responsility for Work Product
+    * Clean Code
+        * Why? 
+            * Prioritize "minimizing cognitive load" for self and team
+            * An aspect of an experienced developer that does not 
+            require experience
+        * What?
+            * Remove dead/unused code, comments and console.logs
+                * source control, branches
+            * Normalize whitespace, check for visual flow
+    * Pass Travis
+        * Why?
+            * Don't Break the Build
+        * What?
+            * In real-world work environments, PR's with failing tests 
+            won't be merged 
+* ?
+
+## Today's Learning Objectives
+
+* Create related data models based on 
+data usage patterns using mongoose schema options.
+* Control json using mongoose `select()`, `populate()`, and `lean()`
+* (Time allowing: Consolidate business logic in models using static and 
+instance mongoose model methods)
+
+## Agenda
+
+### Model Part
+
+* Data Relationships
+	* one to one
+	* one to many
+		* In document
+        * Separate document
+	* many to many
+    * EXERCISE: Whiteboard Data Modelling
+* Related Models
+	* ObjectId
+	* Prefer children referencing parent ids
+	* Sub Documents
+		* logical Mongoose constructs
+		* don't use unless you really need it
+			* Shared subdocument part
+			* Break apart very large document
+	* ObjectId ref’s
+* Using mongoose `.select` and `.populate`
+* Mongoose document objects
+	* Wrapper arround data
+	* performance considerations
+	* use `.lean()`
+* Augmenting Models with methods
+	* static
+	* instance
