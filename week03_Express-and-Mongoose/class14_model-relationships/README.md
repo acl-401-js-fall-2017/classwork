@@ -2,7 +2,9 @@
 
 ## Questions and Issues?
 
-* Responsility for Work Product
+* ?
+
+## Responsility for Work Product
     * Clean Code
         * Why? 
             * Prioritize "minimizing cognitive load" for self and team
@@ -39,6 +41,7 @@ instance mongoose model methods)
         * Separate document
 	* many to many
     * EXERCISE: Whiteboard Data Modelling
+
 * Related Models
 	* ObjectId
 	* Prefer children referencing parent ids
@@ -48,11 +51,13 @@ instance mongoose model methods)
 			* Shared subdocument part
 			* Break apart very large document
 	* ObjectId ref’s
+    * EXERCISE: Create Models
 * Using mongoose `.select` and `.populate`
 * Mongoose document objects
 	* Wrapper arround data
 	* performance considerations
 	* use `.lean()`
+    * EXERCISE: Use `select`, `lean` and `populate`
 * Augmenting Models with methods
 	* static
 	* instance
