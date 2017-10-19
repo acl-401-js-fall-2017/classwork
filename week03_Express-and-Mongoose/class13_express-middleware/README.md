@@ -50,7 +50,7 @@ express error handling middleware functions
 
 #### Functional middlewares
 
-* Doesn't handle response, just does additional work
+* Okay for middleware not to handle response, just do additional work
 * Sometimes this is what people mean by middleware
 * body-parser, authentication, authorization
 
@@ -69,6 +69,10 @@ express error handling middleware functions
 
 Types of errors:
 * Expected
+	* Mongoose Validation errors
+	* 404 (not found)
+	* 400 bad request
+	* 401 not authentication
 * Unexpected (500)
 
 Sources:
@@ -78,7 +82,7 @@ Sources:
 Mob Program:
 * Error Handler
 
-### Modularized express project
+## Modularized express project
 * `lib`
 	* `models`
 	* `routes`
