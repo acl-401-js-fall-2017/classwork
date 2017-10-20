@@ -45,16 +45,19 @@ instance mongoose model methods)
 * Related Models
 	* ObjectId
 	* Prefer children referencing parent ids
+	* ObjectId ref’s
+    * EXERCISE: Create Models
 	* Sub Documents
 		* logical Mongoose constructs
 		* don't use unless you really need it
-			* Shared subdocument part
+			* Shared sub-document part
 			* Break apart very large document
-	* ObjectId ref’s
-    * EXERCISE: Create Models
+        * Consider shared JS instead
+    * Discriminators
 * Using mongoose `.select` and `.populate`
+* Restrict number of results with `.limit()` and `.skip()`
 * Mongoose document objects
-	* Wrapper arround data
+	* Wrapper around data
 	* performance considerations
 	* use `.lean()`
     * EXERCISE: Use `select`, `lean` and `populate`
