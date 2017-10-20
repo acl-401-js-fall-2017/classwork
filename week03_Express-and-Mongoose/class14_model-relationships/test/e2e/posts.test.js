@@ -47,8 +47,8 @@ describe('Post API', () => {
 
     it('saves a comment to a post', () => {
         const text = 'It looks cloudy to me';
-        
-        return saveUser({ name: 'Cathy Commenter' })
+
+        return saveUser({ name: 'Cathy Commentator' })
             // alias the body property of the res object as "commentator"
             .then(({ body: commentator }) => {
                 return request.post(`/api/posts/${post._id}/comments`)

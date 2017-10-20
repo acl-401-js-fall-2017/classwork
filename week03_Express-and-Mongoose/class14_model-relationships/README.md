@@ -4,7 +4,7 @@
 
 * ?
 
-## Responsility for Work Product
+## Responsible for Work Product
     * Clean Code
         * Why? 
             * Prioritize "minimizing cognitive load" for self and team
