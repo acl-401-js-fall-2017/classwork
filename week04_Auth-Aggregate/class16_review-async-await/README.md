@@ -3,8 +3,8 @@
 ## Questions and Issues?
 
 * OPTIONAL: [Use a Different Server Side Framework](https://canvas.instructure.com/courses/1226400/assignments/7247358)
-* No lab added today
 * Review week's schedule
+* (Note: no new lab today)
 * ?
 
 ## Review
