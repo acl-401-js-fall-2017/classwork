@@ -1,44 +1,34 @@
 const router = require('express').Router();
 const User = require('../models/user');
+const respond = require('../utils/respond');
 
 module.exports = router
-    .post('/signup', (req, res, next) => {
+    .post('/signup', respond(async req => {
         const { email, password } = req.body;
         delete req.body.password;
 
         if(!password) throw { code: 400, error: 'password is required'};
 
-        User.emailExists(email)
-            .then(exists => {
-                if(exists) {
-                    throw { code: 400, error: 'email already exists'};
-                }
+        const exists = await User.emailExists(email);
+        if(exists) throw { code: 400, error: 'email already exists'};
 
-                const user = new User(req.body);
-                user.generateHash(password);
-                
-                return user.save();
-            })
-            .then(() => {
-                res.send({ token: 'sekrit' });
-            })
-            .catch(next);
-    })
+        const user = new User(req.body);
+        user.generateHash(password);
+        
+        await user.save();
+        return { token: 'sekrit' };
+    }))
     
-    .post('/signin', (req, res, next) => {
+    .post('/signin', respond( async req => {
         const { email, password } = req.body;
         delete req.body.password;
 
         if(!password) throw { code: 400, error: 'password is required'};
         
-        User.findOne({ email })
-            .then(user => {
-                if(!user || !user.comparePassword(password)) {
-                    throw { code: 401, error: 'authentication failed' };
-                }
-            })
-            .then(() => {
-                res.send({ token: 'sekrit' });
-            })
-            .catch(next);
-    });
+        const user = await User.findOne({ email });
+        if(!user || !user.comparePassword(password)) {
+            throw { code: 401, error: 'authentication failed' };
+        }
+        
+        return { token: 'sekrit' };
+    }));
