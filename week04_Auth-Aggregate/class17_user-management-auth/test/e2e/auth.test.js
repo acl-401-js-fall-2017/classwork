@@ -60,7 +60,7 @@ describe('Auth API', () => {
         try {
             await request
                 .post('/api/auth/signin')
-                .send({ email: 'bad', password: 'abc' })
+                .send({ email: 'bad', password: 'abc' });
 
             throw new Error('Unexpected successful response');                
         }
