@@ -12,8 +12,10 @@ module.exports = {
     drop() {
         return mongoose.connection.dropDatabase();
     },
-    // getToken(user = { email: 'me@me.com', password: 'abc' }) {
-    //     const { body } = await request.post('/api/auth/signup').send(user);
-    //     return body.token;
-    // }
+    getToken(user = { email: 'me@me.com', password: 'abc' }) {
+        return request
+            .post('/api/auth/signup')
+            .send(user)
+            .then(({ body }) => body.token);
+    }
 };

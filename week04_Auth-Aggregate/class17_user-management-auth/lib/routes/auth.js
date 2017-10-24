@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/user');
+const tokenService = require('../utils/token-service');
 
 module.exports = router
     .post('/signup', (req, res, next) => {
@@ -19,9 +20,8 @@ module.exports = router
                 
                 return user.save();
             })
-            .then(() => {
-                res.send({ token: 'sekrit' });
-            })
+            .then(user => tokenService.sign(user))
+            .then(token => res.send({ token }))
             .catch(next);
     })
     
@@ -36,9 +36,8 @@ module.exports = router
                 if(!user || !user.comparePassword(password)) {
                     throw { code: 401, error: 'authentication failed' };
                 }
+                return tokenService.sign(user);
             })
-            .then(() => {
-                res.send({ token: 'sekrit' });
-            })
+            .then(token => res.send({ token }))
             .catch(next);
     });
