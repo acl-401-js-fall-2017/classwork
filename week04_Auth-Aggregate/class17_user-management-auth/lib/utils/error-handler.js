@@ -6,7 +6,7 @@ module.exports = function createErrorHandler(log = console.log) {
     // eslint-disable-next-line
     return (err, req, res, next) => {
         let code = 500;
-        let error = { error: 'Internal Server Error' };
+        let error = 'Internal Server Error';
 
         if(err.code) {
             code = err.code;
@@ -14,7 +14,7 @@ module.exports = function createErrorHandler(log = console.log) {
         }
         else if(err.name === 'CastError') {
             code = 400;
-            error = { error: err.message };
+            error = err.message;
         }
         else if(err.name === 'ValidationError') {
             code = 400;
@@ -26,6 +26,6 @@ module.exports = function createErrorHandler(log = console.log) {
         
         if(showLog) log(code, error);
 
-        res.status(code).json(error);
+        res.status(code).json({ error });
     };
 };

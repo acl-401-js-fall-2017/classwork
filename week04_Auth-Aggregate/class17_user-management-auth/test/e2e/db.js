@@ -12,8 +12,8 @@ module.exports = {
     drop() {
         return mongoose.connection.dropDatabase();
     },
-    async getToken(user = { email: 'me@me.com', password: 'abc' }) {
-        const { body } = await request.post('/api/auth/signup').send(user);
-        return body.token;
-    }
+    // getToken(user = { email: 'me@me.com', password: 'abc' }) {
+    //     const { body } = await request.post('/api/auth/signup').send(user);
+    //     return body.token;
+    // }
 };

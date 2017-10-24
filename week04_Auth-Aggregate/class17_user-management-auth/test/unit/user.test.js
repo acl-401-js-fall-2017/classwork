@@ -6,17 +6,18 @@ describe('user model', () => {
     const user = new User({
         email: 'me@me.com'
     });
+
     const password = 'abc';
     
     it('generates hash from password', () => {
         user.generateHash(password);
-        assert.ok(user.hash);
+        assert.isOk(user.hash);
         assert.notEqual(user.hash, password);
     });
 
-    // it('compares password', () => {
-    //     assert.isOk(user.comparePassword('abc'));
-    //     assert.isNotOk(user.comparePassword('bad password'));
-    // });
+    it('compares password', () => {
+        assert.isTrue(user.comparePassword('abc'));
+        assert.isFalse(user.comparePassword('bad password'));
+    });
     
 });
