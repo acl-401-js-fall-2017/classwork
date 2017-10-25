@@ -9,7 +9,8 @@ const RequiredString = {
 
 const schema = new Schema({
     email: RequiredString,
-    hash: RequiredString
+    hash: RequiredString,
+    roles: [String]
 });
 
 schema.methods.generateHash = function(password) {
