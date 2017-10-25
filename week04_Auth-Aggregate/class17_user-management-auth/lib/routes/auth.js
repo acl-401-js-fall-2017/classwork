@@ -1,8 +1,13 @@
 const router = require('express').Router();
 const User = require('../models/user');
 const tokenService = require('../utils/token-service');
+const ensureAuth = require('../utils/ensure-auth')();
 
 module.exports = router
+    .get('/verify', ensureAuth, (req, res) => {
+        res.json({ verified: true });
+    })
+
     .post('/signup', (req, res, next) => {
         const { email, password } = req.body;
         delete req.body.password;
