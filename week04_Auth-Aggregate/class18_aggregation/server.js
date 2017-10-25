@@ -2,7 +2,7 @@ const http = require('http');
 const app = require('./lib/app');
 const connect = require('./lib/connect');
 
-connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/changeme');
+connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nyc-eateries');
 
 const server = http.createServer(app);
 const port = process.env.port || 3000;

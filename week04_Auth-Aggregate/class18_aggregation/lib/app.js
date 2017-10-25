@@ -9,6 +9,8 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 // add routes
+const restaurants = require('./routes/restaurants');
+app.use('/api/restaurants', restaurants);
 
 app.use(errorHandler());
 
