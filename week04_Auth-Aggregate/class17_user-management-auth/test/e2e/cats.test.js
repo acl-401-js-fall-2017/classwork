@@ -1,7 +1,6 @@
 const request = require('./request');
 const assert = require('chai').assert;
 const db = require('./db');
-const User = require('../../lib/models/user');
 const tokenService = require('../../lib/utils/token-service');
 
 describe('Cats API', () => {

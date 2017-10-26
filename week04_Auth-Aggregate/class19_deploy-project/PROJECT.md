@@ -60,8 +60,9 @@ Requirement by Monday afternoon!
 * You have a week, product won't be maintained
 * Physical distance has impact on communication
 * Best for project week:
-    * parallelize and contribute individually
-    * yet use each other to get unstuck
+    * work in parallel and contribute individually
+    * yet use each other to get unstuck, discuss, decide, etc.
+* All about pace
 
 ## How to work
 * Prefer doing to talking about (do as you talk)
@@ -116,13 +117,33 @@ End result:
 1. Big ball of tangled string
 2. Organized project and consistent code
 
+
+
+
+
+
 ## Teams
 
 ### Team `#`
-* 
+* Christina
+* David
+* Erdem
 
 ### Team `*`
-* 
+* Andrew
+* Eli
+* Kate
+* Robin
 
 ### Team `^`
-* 
+* Maryus
+* Michelle
+* Shayne
+* Zac
+
+## Logistics
+
+* Three tables at each of the whiteboards in main area
+* There are events Monday and Thursday night
+    * Monday night not available
+    * Thursday Machine Learning in class room

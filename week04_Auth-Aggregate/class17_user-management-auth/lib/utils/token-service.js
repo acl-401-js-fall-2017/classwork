@@ -1,26 +1,21 @@
 const jwt = require('jsonwebtoken');
+const promisify = require('util').promisify;
 const appSecret = process.env.APP_SECRET || 'changemenow';
+
+const sign = promisify(jwt.sign);
+const verify = promisify(jwt.verify);
 
 module.exports = {
     sign(user) {
-        return new Promise((resolve, reject) => {
-            const payload = {
-                id: user._id,
-                roles: user.roles
-            };
+        
+        const payload = {
+            id: user._id,
+            roles: user.roles
+        };
 
-            jwt.sign(payload, appSecret, (err, token) => {
-                if(err) reject(err);
-                else resolve(token);
-            });
-        });
+        return sign(payload, appSecret);
     },
     verify(token) {
-        return new Promise((resolve, reject) => {
-            jwt.verify(token, appSecret, (err, payload) => {
-                if(err) reject(err);
-                else resolve(payload);
-            });
-        });
+        return verify(token, appSecret);
     }
-}
+};

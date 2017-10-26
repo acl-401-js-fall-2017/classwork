@@ -14,7 +14,7 @@ Project Week, Deployment, Teams
 
 ## Agenda
 
-Repo is here: <TBD>
+Repo is here: https://github.com/martypdx/demo-app
 
 ### Travis
 
@@ -58,14 +58,12 @@ Repo is here: <TBD>
 	* `heroku git:remote -a <app_name>`
 	* `heroku logs --tail`
 	* `git`
-		* `git remove -v`
+		* `git remote -v`
 		* `git push heroku master`
 * Manage `env` variables
 	* Dashboard
 	* `heroku config`
 * Setup `mLab`
-
-
 
 ### Misc
 
