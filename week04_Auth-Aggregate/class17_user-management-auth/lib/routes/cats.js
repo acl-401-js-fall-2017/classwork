@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const ensureAuth = require('../utils/ensure-role');
+const ensureRole = require('../utils/ensure-role');
 
 module.exports = router
     .get('/', (req, res) => {
@@ -10,7 +10,7 @@ module.exports = router
         ]);
     })
 
-    .get('/supercats', ensureAuth('admin'), (req, res) => {
+    .get('/supercats', ensureRole('admin'), (req, res) => {
         res.json([
             { name: 'super garfield' },
             { name: 'super meow-meow' },
