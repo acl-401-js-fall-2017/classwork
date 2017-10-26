@@ -117,11 +117,6 @@ End result:
 1. Big ball of tangled string
 2. Organized project and consistent code
 
-
-
-
-
-
 ## Teams
 
 ### Team `#`
