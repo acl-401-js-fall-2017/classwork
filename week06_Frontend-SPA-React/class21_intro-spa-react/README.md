@@ -7,6 +7,7 @@ Intro to React and `create-react-app`
 	* Kayla and Johnny
 	* Emily Cain (10am-12pm for 401s)
 * Keep doing codewars.com!
+* Second half "reset"! Time for front end
 
 ## Agenda
 * Review second half of 401
@@ -102,10 +103,31 @@ Let's try it out...
         * fine to use `kabob-names`
     * 2 spaces (html/jsx)
 
+### Add `.eslintrc`
+
+```
+{
+    "extends": ["eslint:recommended", "react-app"],
+    "rules": {
+        "no-console": "warn",
+        "indent": ["error", 2],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "space-in-parens": ["error"],
+        "object-curly-spacing": ["error", "always"],
+        "react/jsx-curly-spacing": [2, {"when": "never", "spacing": {
+            "objectLiterals": "never"
+        }}]
+    }
+}
+```
+
 ### JSX
 
 Try it out: https://babeljs.io/repl/
 
+* Adds a new use of `{` `}`
+	* new eslint rules
 * Gets transpiled to JavaScript (that creates vdom)
 * Try [babeljs.io/repl](http://babeljs.io/repl) to see what JSX gets turned into
 * Offers declarative construct on top of React.createElement calls
