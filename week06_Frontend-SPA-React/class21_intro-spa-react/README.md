@@ -3,8 +3,17 @@ Intro to React and `create-react-app`
 
 ## Misc
 * We will review backend projects on Wednesday
-* Keep doing codewars!
-* TA Changes
+* TA Changes:
+	* Kayla and Johnny
+	* Emily Cain (10am-12pm for 401s)
+* Keep doing codewars.com!
+
+## Agenda
+* Review second half of 401
+* ?
+* Modern SPA
+* React
+* Advanced JS
 
 ## Today's Learning Objectives
 
@@ -17,7 +26,6 @@ Intro to React and `create-react-app`
     * Components
     * Render cycle
 
-## Agenda
 
 ### Background
 
@@ -90,8 +98,8 @@ Let's try it out...
 
 ### Project format
 * Notice CRA uses
-    * CamelCase file names
-        * fine to use kabob
+    * `CamelCase` file names
+        * fine to use `kabob-names`
     * 2 spaces (html/jsx)
 
 ### JSX
