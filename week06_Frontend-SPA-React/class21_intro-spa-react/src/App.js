@@ -72,7 +72,7 @@ class Greeting extends Component {
 
     return (
       <div style={{ color }} className={specialClass}>
-        <span>{salutation}</span>
+        <span>{salutation.toUpperCase()}</span>
         &nbsp;
         <span>{name}</span>
       </div>
