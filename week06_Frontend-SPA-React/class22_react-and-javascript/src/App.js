@@ -7,69 +7,49 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      people: [],
-      error: null
+      pets: [
+        { type: 'cat', name: 'Felix' },
+        { type: 'snake', name: 'Nagini' },
+        { type: 'dog', name: 'Lassie' },
+        { type: 'cat', name: 'Garfield' },
+        { type: 'bird', name: 'Tweety' },
+        { type: 'bird', name: 'Polly' },
+        { type: 'cat', name: 'Heathcliff' }
+      ]
     };
   }
 
-  async componentDidMount() {
-    try {
-      const json = localStorage.people;
-      if(json) {
-        this.setState({ people: JSON.parse(json) });
-        return;
-      }
-
-      let url = 'https://swapi.co/api/people';
-      let people = [];
-      while(url) {
-        const response = await fetch(url);
-        if(!response.ok) throw new Error('Failed to fetch people, status code ' + response.status);
-        const body = await response.json();
-        people = people.concat(body.results);
-        url = body.next;
-      }
-      localStorage.people = JSON.stringify(people);
-      this.setState({ people, error: null });
-    }
-    catch(error) {
-      this.setState({ error });
-    }
-
-  }
-
   render() {
-    const { people, error } = this.state;
+    const { pets } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Star Wars People</h1>
+          <h1 className="App-title">List of Pets</h1>
         </header>
-
-        <People people={people}/>
-        
-        <pre style={{ color: 'red' }}>{error && error.message}</pre>
+        <PetList pets={pets}/>        
       </div>
     );
   }
 }
 
-class People extends Component {
+class PetList extends Component {
   render() {
-    const { people } = this.props;
+    const { pets } = this.props;
     return (
       <ul>
-        {people.map((person, i) => <Person key={i} person={person}/>)}
+        {pets.map((pet, i) => (
+          <Pet key={i} pet={pet}/>)
+        )}
       </ul>
     );
   }
 }
 
-class Person extends Component {
+class Pet extends Component {
   render() {
-    const { person } = this.props;
-    return <li>{person.name} born {person.birth_year}</li>;
+    const { pet } = this.props;
+    return <li>{pet.name} the {pet.type}</li>;
   }
 }
 
