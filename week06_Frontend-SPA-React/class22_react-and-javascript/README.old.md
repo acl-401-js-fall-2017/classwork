@@ -59,6 +59,7 @@ This is all you know so far, but why?
     * What to use for key?
         * Use `id`
         * Use value if not objects
+        * Use a unique value from the object
         * `index` is last resort for things that don't reorder
 
 #### Demo and Exercise
