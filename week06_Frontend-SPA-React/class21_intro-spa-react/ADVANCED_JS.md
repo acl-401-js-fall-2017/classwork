@@ -41,12 +41,12 @@ Try it out: https://babeljs.io/repl/ to "see" es5 equivalent
 	* property/variable shorthand
 	> If you are assigning a variable to a property of an object literal,
 	> and the property should have the same name as the variable, you can > omit the `: value` part:
-	    ```
-	    const first = 'jane';
-	    const last = 'smith';
-	    const person = { first, last }; 
-	    // instead of { first: first, last: last }
-	    ```
+    ```
+    const first = 'jane';
+    const last = 'smith';
+    const person = { first, last }; 
+    // instead of { first: first, last: last }
+    ```
 
 * Destructuring
 	* Assignment to variable or argument
