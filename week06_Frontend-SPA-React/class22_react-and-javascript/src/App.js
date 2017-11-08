@@ -15,16 +15,19 @@ class App extends Component {
         { type: 'bird', name: 'Tweety' },
         { type: 'bird', name: 'Polly' },
         { type: 'cat', name: 'Heathcliff' }
-      ]
+      ],
+      filter: ''
     };
   }
 
   render() {
-    const { pets } = this.state;
+    const { pets, filter } = this.state;
     return (
       <div className="App">
-        <Header/>
-        <PetList pets={pets}/>        
+        <Header filter={filter} onFilterChange={filter => {
+          this.setState({ filter });
+        }}/>
+        <PetList pets={pets} filter={filter}/>        
       </div>
     );
   }
@@ -32,32 +35,26 @@ class App extends Component {
 
 class Header extends Component {
   render() {
+    const { filter, onFilterChange } = this.props;
     return (
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">List of Pets</h1>
+        <input value={filter} onChange={({ target }) => {
+          onFilterChange(target.value);
+        }}/>
       </header>
     );
   }
 }
 
 class PetList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      filter: ''
-    };
-  }
-
+  
   render() {
-    const { pets } = this.props;
-    const { filter } = this.state;
+    const { pets, filter } = this.props;
     const filteredPets = filter ? pets.filter(p => p.type === filter) : pets;
     return (
       <div>
-        <input value={filter} onChange={({ target }) => {
-          this.setState({ filter: target.value });
-        }}/>
         <ul>
           {filteredPets.map((pet, i) => (
             <Pet key={i} pet={pet}/>)
