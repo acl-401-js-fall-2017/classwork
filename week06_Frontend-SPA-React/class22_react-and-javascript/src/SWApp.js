@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// here is how to access an env variable
+const omdbKey = process.env.REACT_APP_OMDB_API_KEY;
+
 export default class SWApp extends Component {
   constructor() {
     super();
