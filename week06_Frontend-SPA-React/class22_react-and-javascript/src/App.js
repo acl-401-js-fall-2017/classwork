@@ -23,25 +23,47 @@ class App extends Component {
     const { pets } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">List of Pets</h1>
-        </header>
+        <Header/>
         <PetList pets={pets}/>        
       </div>
     );
   }
 }
 
+class Header extends Component {
+  render() {
+    return (
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">List of Pets</h1>
+      </header>
+    );
+  }
+}
+
 class PetList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      filter: ''
+    };
+  }
+
   render() {
     const { pets } = this.props;
+    const { filter } = this.state;
+    const filteredPets = filter ? pets.filter(p => p.type === filter) : pets;
     return (
-      <ul>
-        {pets.map((pet, i) => (
-          <Pet key={i} pet={pet}/>)
-        )}
-      </ul>
+      <div>
+        <input value={filter} onChange={({ target }) => {
+          this.setState({ filter: target.value });
+        }}/>
+        <ul>
+          {filteredPets.map((pet, i) => (
+            <Pet key={i} pet={pet}/>)
+          )}
+        </ul>
+      </div>
     );
   }
 }
