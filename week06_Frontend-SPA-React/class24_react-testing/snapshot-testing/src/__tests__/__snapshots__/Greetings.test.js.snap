@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Greeter says hello by default 1`] = `
+<div>
+  Hello
+   
+  Mimi
+</div>
+`;
+
+exports[`Greeter says salutation to Mimi 1`] = `
+<div>
+  Goodbye
+   
+  Mimi
+</div>
+`;
+
+exports[`Greetings says hello to people 1`] = `
+<div>
+  <ul>
+    <Greeter
+      name="Jill"
+      salutation="Hello"
+    />
+    <Greeter
+      name="Julie"
+      salutation="Hello"
+    />
+    <Greeter
+      name="Jonsie"
+      salutation="Hello"
+    />
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    Say 
+    Goodbye
+  </button>
+  <input
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`Greetings says hello to people 2`] = `
+<div>
+  <ul>
+    <Greeter
+      name="Jill"
+      salutation="Goodbye"
+    />
+    <Greeter
+      name="Julie"
+      salutation="Goodbye"
+    />
+    <Greeter
+      name="Jonsie"
+      salutation="Goodbye"
+    />
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    Say 
+    Hello
+  </button>
+  <input
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`Greetings says hello to people 3`] = `
+<div>
+  <ul>
+    <Greeter
+      name="Jill"
+      salutation="foo"
+    />
+    <Greeter
+      name="Julie"
+      salutation="foo"
+    />
+    <Greeter
+      name="Jonsie"
+      salutation="foo"
+    />
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    Say 
+    Hello
+  </button>
+  <input
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`Greetings says hello to people 4`] = `
+<div>
+  <ul>
+    <Greeter
+      name="Jill"
+      salutation="Hello"
+    />
+    <Greeter
+      name="Julie"
+      salutation="Hello"
+    />
+    <Greeter
+      name="Jonsie"
+      salutation="Hello"
+    />
+  </ul>
+  <button
+    onClick={[Function]}
+  >
+    Say 
+    Goodbye
+  </button>
+  <input
+    onChange={[Function]}
+  />
+</div>
+`;
