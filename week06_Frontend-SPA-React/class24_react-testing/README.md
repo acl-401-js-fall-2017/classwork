@@ -2,12 +2,12 @@ React Testing, Misc
 ===
 
 ## Questions/Issues
-
+* 1-on-1's next week (will post link)
 * ?
 
 ## Agenda
 
-### State/Props Patters
+### State/Props Patterns
 
 #### Review
 * Passing functions as actions
@@ -17,12 +17,12 @@ React Testing, Misc
 	* Push state a far down as possible
 
 #### State derived from props
-    * Component
-        * receives props
-        * uses prop value to get state (`fetch`)
-        * sets own state with response
-    * (Master/Detail Pattern with id)
-    * But needs to use `componentWillReceiveProps`...
+* Component
+	* receives props
+	* uses prop value to get state (`fetch`)
+	* sets own state with response
+* (Master/Detail Pattern with id)
+* But needs to use `componentWillReceiveProps`...
 
 #### Component re-rendering and prop changes
 
@@ -34,7 +34,7 @@ React Testing, Misc
 
 ### Pure Functions
 
-* props => { return <div></div>; }
+* `props => { return <div></div>; }`
 
 ### Testing and Correctness
 

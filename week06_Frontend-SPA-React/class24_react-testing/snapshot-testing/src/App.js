@@ -3,7 +3,7 @@ import { Greetings } from './Greetings';
 
 class App extends Component {
   render() {
-    return <Greetings people={['Pierre', 'Mark']}/>;
+    return <Greetings people={['Julie', 'Fred', 'Jones']}/>;
   }
 }
 

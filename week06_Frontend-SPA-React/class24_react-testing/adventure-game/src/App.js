@@ -49,6 +49,7 @@ class App extends Component {
 
   render() {
     const { player, room } = this.state;
+    
     return (
       <div className="App">
         <div className="App-header">
@@ -57,7 +58,9 @@ class App extends Component {
             onDrop={this.handleDrop}
           />
         </div>
-        <Room room={room} 
+        <Room 
+          player={player}
+          room={room} 
           onExit={this.handleExit}
           onPickup={this.handlePickup}
         />

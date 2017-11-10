@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+export function Greeter({ salutation = 'Hello', name }) {
+  return <div><em>{salutation}</em> {name}!</div>;
+}
+
 Greeter.propTypes = {
   salutation: PropTypes.string,
   name: PropTypes.string.isRequired
-}
-
-export function Greeter({ salutation = 'Hello', name }) {
-  console.log('Greeter', salutation, name);
-  return <div>{salutation} {name}</div>;
-}
+};
 
 export class Greetings extends Component {
 
@@ -31,11 +30,12 @@ export class Greetings extends Component {
   }
 
   getOppositeSalutation() {
-    return this.state.salutation === 'Hello' ? 'Goodbye' : 'Hello'
+    return this.state.salutation === 'Hello' ? 'Goodbye' : 'Hello';
   }
 
   render() {
     const { salutation } = this.state;
+    const opposite = this.getOppositeSalutation();
     const { people } = this.props;
     return (
       <div>
@@ -44,10 +44,10 @@ export class Greetings extends Component {
             <Greeter key={i} salutation={salutation} name={person} />
           ))}
         </ul>
-        <button onClick={() => this.changeSalutation()}>
-          Say {this.getOppositeSalutation()}
+        <button onClick={() => this.changeSalutation(opposite)}>
+          Say {opposite}
         </button>
-        <input onChange={({ target }) => this.changeSalutation(target.value)}/>
+        {<input onChange={({ target }) => this.changeSalutation(target.value)}/>}
       </div>
     );
   }

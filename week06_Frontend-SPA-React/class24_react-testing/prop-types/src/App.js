@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PropTypes from 'prop-types';
 
 import Cats from './animals/Cats';
 import Dogs from './animals/Dogs';
@@ -12,7 +13,7 @@ class App extends Component {
       cats: ['felix', 'garfield', 'tom'],
       dogs: undefined, //['lassie', 'odie', 'otis'],
       selectedDog: ''
-    }
+    };
 
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -29,7 +30,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p>Dog of the month is {selectedDog}</p>
+        <DogOfTheMonth dog={selectedDog}/>
 
         <Cats cats={cats}/>
         <Dogs dogs={dogs} onSelect={this.handleSelect}/>
@@ -37,6 +38,14 @@ class App extends Component {
     );
   }
 }
+
+function DogOfTheMonth({ dog }) {
+  return <p>Dog of the month is {dog}</p>;
+}
+
+DogOfTheMonth.propTypes = {
+  dog: PropTypes.string
+};
 
 
 export default App;

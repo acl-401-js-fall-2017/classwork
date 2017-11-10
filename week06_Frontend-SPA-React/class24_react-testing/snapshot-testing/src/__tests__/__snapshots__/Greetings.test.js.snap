@@ -2,17 +2,23 @@
 
 exports[`Greeter says hello by default 1`] = `
 <div>
-  Hello
+  <em>
+    Hello
+  </em>
    
   Mimi
+  !
 </div>
 `;
 
 exports[`Greeter says salutation to Mimi 1`] = `
 <div>
-  Goodbye
+  <em>
+    Goodbye
+  </em>
    
   Mimi
+  !
 </div>
 `;
 
@@ -105,22 +111,22 @@ exports[`Greetings says hello to people 4`] = `
   <ul>
     <Greeter
       name="Jill"
-      salutation="Hello"
+      salutation="Goodbye"
     />
     <Greeter
       name="Julie"
-      salutation="Hello"
+      salutation="Goodbye"
     />
     <Greeter
       name="Jonsie"
-      salutation="Hello"
+      salutation="Goodbye"
     />
   </ul>
   <button
     onClick={[Function]}
   >
     Say 
-    Goodbye
+    Hello
   </button>
   <input
     onChange={[Function]}
