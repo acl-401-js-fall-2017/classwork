@@ -2,16 +2,28 @@ import React, { PureComponent } from 'react';
 import Todo from './Todo';
 import shortid from 'shortid';
 
+function loadTodos(state) {
+  return {
+    ...state,
+    todos: [
+      { _id: shortid.generate(), title: 'Learn React', completed: false },
+      { _id: shortid.generate(), title: 'Forget React', completed: false },
+      { _id: shortid.generate(), title: 'relearn React', completed: false },
+    ]
+  };
+}
+
 export default class TodoList extends PureComponent {
   constructor() {
     super();
     this.state = {
-      todos: [
-        { _id: shortid.generate(), title: 'Learn React', completed: false },
-        { _id: shortid.generate(), title: 'Forget React', completed: false },
-        { _id: shortid.generate(), title: 'relearn React', completed: false },
-      ]
+      todos: []
     };
+  }
+
+  componentDidMount() {
+    const newState = loadTodos(this.state);
+    this.setState(newState);
   }
 
   render() {
