@@ -13,13 +13,16 @@ export default class TodoList extends PureComponent {
     this.history = [];
   }
 
-  // override the setState so we can cache the history
+  // Really history should belong in the state actions.
+  // But where we are missing some pieces that would
+  // make that straight forward.
+  // So for now, let's override the setState so we 
+  // can cache the history on a component level
   setState(state, ignore = false) {
     if(!ignore) this.history.push(this.state);
     super.setState(state);
   }
 
-  
   componentDidMount() {
     const newState = loadTodos(this.state);
     this.setState(newState);
