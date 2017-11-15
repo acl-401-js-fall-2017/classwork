@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 
-export default class AddTodo extends PureComponent {
+export default class AddItem extends PureComponent {
   render() {
     const { onAdd } = this.props;
     return (
       <form onSubmit={event => {
         event.preventDefault();
         const { elements } = event.target;
-        onAdd(elements.title.value);
-        elements.title.value = '';
+        onAdd(elements.name.value);
+        elements.name.value = '';
       }}>
-        <input name="title"/>
+        <input name="name"/>
         <button type="submit">Add</button>
       </form>
     ); 

@@ -1,19 +1,15 @@
 import shortid from 'shortid';
 
-const createTodo = title => ({ 
+export const createTodo = title => ({ 
   _id: shortid.generate(),
   title, 
   completed: false 
 });
 
-export function loadTodos(state) {
+export function loadTodos(state, todos) {
   return {
     ...state,
-    todos: [
-      createTodo('Learn React'),
-      createTodo('Forget React'),
-      createTodo('Relearn React'),
-    ]
+    todos
   };
 }
 

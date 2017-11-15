@@ -1,4 +1,20 @@
-import { addTodo, removeTodo, changeTodoCompletion } from './actions';
+import { 
+  createTodo,
+  loadTodos,
+  addTodo, 
+  removeTodo, 
+  changeTodoCompletion 
+} from './todo.actions';
+
+it('loads todos', () => {
+  // create three todos, using "Task 0", etc as the Todo name
+  const todos = Array(3).fill().map((ignore, i) => createTodo(`Task ${i + 1}`));
+  const newState = loadTodos({}, todos);
+
+  expect(newState).toEqual({
+    todos
+  });
+});
 
 it('adds a todo to empty state todos', () => {
   const newState = addTodo({ todos: [] }, 'new todo');

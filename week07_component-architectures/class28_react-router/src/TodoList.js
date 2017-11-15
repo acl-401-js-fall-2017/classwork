@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Todo from './Todo';
-import AddTodo from './AddTodo';
+import AddItem from './AddItem';
 import { loadTodos, addTodo, removeTodo, changeTodoCompletion } from './actions';
 
 export default class TodoList extends PureComponent {
@@ -65,7 +65,7 @@ export default class TodoList extends PureComponent {
             />
           ))}
         </ul>
-        <AddTodo onAdd={this.handleAdd}/>
+        <AddItem onAdd={this.handleAdd}/>
         <button disabled={!this.history.length} onClick={this.undo}>Undo</button>
       </section>
     );
