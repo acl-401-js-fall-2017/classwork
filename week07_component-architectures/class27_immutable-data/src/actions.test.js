@@ -1,5 +1,5 @@
 import React from 'react';
-import { addTodo } from './actions';
+import { addTodo, removeTodo, changeTodoCompletion } from './actions';
 
 function cleanIds(todos) {
   todos.forEach(t => {
@@ -27,7 +27,7 @@ it('adds a todo and preservers existing state keys and todos', () => {
   };
   const newState = addTodo(state, 'new todo');
   cleanIds(newState.todos);
-  
+
   expect(newState).toEqual({
     name: 'foo',
     todos: [
@@ -36,3 +36,36 @@ it('adds a todo and preservers existing state keys and todos', () => {
     ]
   });
 });
+
+it('remove a todo by _id', () => {
+  let state = { todos: [] };
+  state = addTodo(state, 'todo one');
+  state = addTodo(state, 'todo two');
+
+  const id = state.todos[0]._id;
+
+  const newState = removeTodo(state, id);
+
+  expect(newState).toEqual({
+    todos: [state.todos[1]]
+  });
+});
+
+it('change a todo to completed', () => {
+  let state = { todos: [] };
+  state = addTodo(state, 'todo one');
+  state = addTodo(state, 'todo two');
+
+  const firstTodo = state.todos[0];
+  const _id = firstTodo._id;
+
+  const newState = changeTodoCompletion(state, { _id, completed: true });
+
+  expect(newState).toEqual({
+    todos: [
+      { ...firstTodo, completed: true },
+      state.todos[1]
+    ]
+  });
+});
+
