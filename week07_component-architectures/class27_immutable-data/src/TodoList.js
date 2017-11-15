@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import Todo from './Todo';
+import AddTodo from './AddTodo';
 import shortid from 'shortid';
 
 function loadTodos(state) {
@@ -8,7 +9,7 @@ function loadTodos(state) {
     todos: [
       { _id: shortid.generate(), title: 'Learn React', completed: false },
       { _id: shortid.generate(), title: 'Forget React', completed: false },
-      { _id: shortid.generate(), title: 'relearn React', completed: false },
+      { _id: shortid.generate(), title: 'Relearn React', completed: false },
     ]
   };
 }
@@ -27,6 +28,10 @@ export default class TodoList extends PureComponent {
     this.setState(newState);
   }
 
+  handleAdd = title => {
+    console.log(title);
+  }
+
   render() {
     const { todos, name } = this.state;
 
@@ -36,6 +41,7 @@ export default class TodoList extends PureComponent {
         <ul>
           {todos.map(todo => <Todo key={todo._id} todo={todo}/>)}
         </ul>
+        <AddTodo onAdd={this.handleAdd}/>
       </section>
     );
   }

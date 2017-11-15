@@ -8,6 +8,7 @@ export default class AddTodo extends PureComponent {
         event.preventDefault();
         const { elements } = event.target;
         onAdd(elements.title.value);
+        elements.title.value = '';
       }}>
         <input name="title"/>
         <button type="submit">Add</button>
