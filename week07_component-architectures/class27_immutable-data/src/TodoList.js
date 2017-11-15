@@ -10,11 +10,27 @@ export default class TodoList extends PureComponent {
       todos: [],
       name: 'marty'
     };
+    this.history = [];
   }
 
+  // override the setState so we can cache the history
+  setState(state, ignore = false) {
+    if(!ignore) this.history.push(this.state);
+    super.setState(state);
+  }
+
+  
   componentDidMount() {
     const newState = loadTodos(this.state);
     this.setState(newState);
+    // let's not consider the load event "undoable"
+    this.history = [];
+  }
+
+  undo = () => {
+    if(!this.history.length) return;
+    const last = this.history.pop();
+    this.setState(last, true);
   }
 
   handleAdd = title => {
@@ -47,6 +63,7 @@ export default class TodoList extends PureComponent {
           ))}
         </ul>
         <AddTodo onAdd={this.handleAdd}/>
+        <button disabled={!this.history.length} onClick={this.undo}>Undo</button>
       </section>
     );
   }
