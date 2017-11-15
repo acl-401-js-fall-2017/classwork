@@ -8,6 +8,10 @@ Review, Forms, Data Immutability
 ## Prior to Lab
 * Cover pulling from upstream repo
 
+## Today
+* React Router
+* Adding categorized data to state
+
 ## React Router
 
 1. Today: Core React Router
@@ -68,4 +72,8 @@ user action (can also be done programmatically). Two things you *must* remember:
     * Always a `string`
 * Multiple `Route` components can exist across app the update different
 parts of the app
+
+## Handling Parent-Child state
+
+* Use keys in state
 
