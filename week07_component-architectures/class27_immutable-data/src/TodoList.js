@@ -17,7 +17,8 @@ export default class TodoList extends PureComponent {
   constructor() {
     super();
     this.state = {
-      todos: []
+      todos: [],
+      name: 'marty'
     };
   }
 
@@ -27,11 +28,11 @@ export default class TodoList extends PureComponent {
   }
 
   render() {
-    const { todos } = this.state;
+    const { todos, name } = this.state;
 
     return (
       <section>
-        <h3>You have {todos.length} todos</h3>
+        <h3>Hey, {name}, You have {todos.length} todos</h3>
         <ul>
           {todos.map(todo => <Todo key={todo._id} todo={todo}/>)}
         </ul>
