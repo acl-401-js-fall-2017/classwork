@@ -10,7 +10,7 @@ it('adds a todo to empty state todos', () => {
 });
 
 it('adds a todo and preservers existing state keys and todos', () => {
-  const existingTodo = { _id: '123abc', title: 'existing todo', completed: true }
+  const existingTodo = { _id: '123abc', title: 'existing todo', completed: true };
   const state = { 
     name: 'foo',
     todos: [ existingTodo ]
