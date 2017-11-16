@@ -4,7 +4,7 @@ import logo from './logo.svg';
 
 const HeaderLink = props => <NavLink {...props} 
   className="nav-link" 
-  activeClass={'active'}
+  activeClassName="active"
 />;
 
 export default function Header() {

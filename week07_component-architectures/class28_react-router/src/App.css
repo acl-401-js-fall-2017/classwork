@@ -61,11 +61,11 @@ nav > li {
   margin-right: auto;
   margin-left: auto;
   text-align: left;
-  background: lightgrey;
+  background: rgba(249, 171, 77, 0.5);
 }
 
 .albums > li:hover {
-  background: #aaa;
+  background: rgba(249, 171, 77, .8);
   color: white;
 }
 
