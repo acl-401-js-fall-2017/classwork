@@ -1,3 +1,7 @@
+import {
+  createList
+} from './list.actions';
+
 import { 
   createTodo,
   loadTodos,
@@ -6,14 +10,25 @@ import {
   changeTodoCompletion 
 } from './todo.actions';
 
-it('loads todos', () => {
-  // create three todos, using "Task 0", etc as the Todo name
-  const todos = Array(3).fill().map((ignore, i) => createTodo(`Task ${i + 1}`));
-  const newState = loadTodos({}, todos);
+it('loads todos, creates then reuse', () => {
+  const list = createList('List 1');
+  const oldState = {
+    lists: [list],
+    todosByListId: {}
+  };
+
+  const newState = loadTodos(oldState, list._id);
 
   expect(newState).toEqual({
-    todos
+    lists: [list],
+    todosByListId: {
+      [list._id]: []
+    },
+    todos: []
   });
+
+  const newerState = loadTodos(newState, list._id);
+  expect(newerState).toBe(newState);
 });
 
 it('adds a todo to empty state todos', () => {

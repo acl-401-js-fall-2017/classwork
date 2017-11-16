@@ -31,6 +31,32 @@ nav > li {
   margin: 0 10px;
 }
 
+.albums {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.albums > li {
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  background: lightgrey;
+}
+
+.albums > li:hover {
+  background: #aaa;
+  color: white;
+}
+
+.albums > li > button {
+  float: right;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

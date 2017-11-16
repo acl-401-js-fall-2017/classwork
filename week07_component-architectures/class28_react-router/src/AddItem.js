@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 export default class AddItem extends PureComponent {
   render() {
-    const { onAdd } = this.props;
+    const { onAdd, type } = this.props;
     return (
       <form onSubmit={event => {
         event.preventDefault();
@@ -11,7 +11,7 @@ export default class AddItem extends PureComponent {
         elements.name.value = '';
       }}>
         <input name="name"/>
-        <button type="submit">Add</button>
+        <button type="submit">Add {type}</button>
       </form>
     ); 
   }

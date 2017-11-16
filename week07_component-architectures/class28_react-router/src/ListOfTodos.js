@@ -1,24 +1,25 @@
 import React, { PureComponent } from 'react';
-import { loadLists, addList, removeList } from './list.actions';
+import { Link } from 'react-router-dom';
+import store from './store';
+import { addList, removeList } from './list.actions';
 import AddItem from './AddItem';
 
 export default class ListOfTodos extends PureComponent {
   
   state = {
-    lists: []
+    lists: [],
+    todosByListId: []
   }
 
   componentDidMount() {
-    const lists = window.localStorage.getItem('lists');
-    if(lists) {
-      const newState = loadLists(this.state, JSON.parse(lists));
-      this.setState(newState);
-    }
-
+    this.setState(store.load());
     window.onbeforeunload = () => {
-      const json = JSON.stringify(this.state.lists);
-      window.localStorage.setItem('lists', json);
+      store.save(this.state);
     };
+  }
+  
+  componentWillUnmount() {
+    store.save(this.state);
   }
 
   handleAdd = title => {
@@ -40,12 +41,12 @@ export default class ListOfTodos extends PureComponent {
         <ul className="albums">
           {lists.map(list => (
             <li key={list._id}>
-              {list.title}
+              <Link to={`/todos/${list._id}`}>{list.title}</Link>
               <button onClick={() => this.handleRemove(list._id)}>X</button>
             </li>
           ))}
         </ul>
-        <AddItem onAdd={this.handleAdd}/>
+        <AddItem type="list" onAdd={this.handleAdd}/>
       </section>
     );
   }

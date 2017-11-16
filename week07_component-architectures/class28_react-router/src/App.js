@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
 import logo from './logo.svg';
 import './App.css';
 import ListOfTodos from './ListOfTodos';
+import TodoList from './TodoList';
 
 const OurNavLink = props => <NavLink {...props} activeStyle={{ color: 'white' }}/>;
 
@@ -25,7 +26,8 @@ class App extends Component {
           </header>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="/todos" component={ListOfTodos}/>
+            <Route exact path="/todos" component={ListOfTodos}/>
+            <Route path="/todos/:id" component={TodoList}/>
             <Redirect to="/"/>
           </Switch>
         </div>
