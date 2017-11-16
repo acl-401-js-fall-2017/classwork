@@ -12,12 +12,12 @@ export function loadLists(state, lists) {
   };
 }
 
-export function addList(state, title) {
+export function addList(state, list) {
   return {
     ...state,
     lists: [
       ...state.lists,
-      createList(title)
+      list
     ]
   };
 }

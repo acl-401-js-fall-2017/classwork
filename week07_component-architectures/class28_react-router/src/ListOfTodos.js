@@ -1,33 +1,28 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import store from './store';
+import { listApi } from './api';
 import { addList, removeList } from './list.actions';
 import AddItem from './AddItem';
 
 export default class ListOfTodos extends PureComponent {
   
   state = {
-    lists: [],
-    todosByListId: []
+    lists: []
   }
 
-  componentDidMount() {
-    this.setState(store.load());
-    window.onbeforeunload = () => {
-      store.save(this.state);
-    };
+  async componentDidMount() {
+    const lists = await listApi.get();
+    this.setState({ lists });
   }
   
-  componentWillUnmount() {
-    store.save(this.state);
-  }
-
-  handleAdd = title => {
-    const newState = addList(this.state, title);
+  handleAdd = async title => {
+    const list = await listApi.add({ title });
+    const newState = addList(this.state, list);
     this.setState(newState);
   }
 
-  handleRemove = id => {
+  handleRemove = async id => {
+    await listApi.remove(id);
     const newState = removeList(this.state, id);
     this.setState(newState);
   }

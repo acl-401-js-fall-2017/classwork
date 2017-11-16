@@ -8,12 +8,12 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 40px;
 }
 
 .App-header {
-  background-color: rgb(204, 193, 193);
-  height: 150px;
+  background-color: steelblue;
+  height: 120px;
   padding: 20px;
   color: white;
 }
@@ -26,9 +26,25 @@
   font-size: large;
 }
 
+nav {
+  margin: 10px 0;
+}
 nav > li {
   display: inline-block;
   margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.nav-link:visited {
+  color: white;
+}
+
+.nav-link.active {
+  border: 1px solid white;
 }
 
 .albums {

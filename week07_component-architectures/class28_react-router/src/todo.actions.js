@@ -1,5 +1,4 @@
 import shortid from 'shortid';
-import store from './store';
 
 export const createTodo = title => ({ 
   _id: shortid.generate(),
@@ -7,37 +6,13 @@ export const createTodo = title => ({
   completed: false 
 });
 
-export function loadTodos(state, listId) {
-  const storeState = store.load();
-  // get our existing byId dictionary
-  let { todosByListId } = storeState;
-  // try and get the todos for the id we were provide
-  let todos = todosByListId[listId];
-  
-  // no match?
-  if(!todos) {
-    // create empty array and but in store for later
-    todos = [];
-    storeState.todosByListId[listId] = todos;
-    store.save(storeState);
-  }
 
-  // is this same as existing todo?
-  if(todos === state.todos) return state;
-
-  // otherwise, set todos to new list
-  return {
-    ...state,
-    todos
-  };
-}
-
-export function addTodo(state, title) {
+export function addTodo(state, todo) {
   return {
     ...state,
     todos: [
       ...state.todos,
-      createTodo(title)
+      todo
     ]
   };
 }
@@ -55,16 +30,16 @@ export function removeTodo(state, _id) {
   };
 }
 
-export function changeTodoCompletion(state, { _id, completed }) {
+export function updateTodo(state, todo) {
   const { todos } = state;
-  const index = todos.findIndex(t => t._id === _id);
+  const index = todos.findIndex(t => t._id === todo._id);
   if(index === -1) return state;
   
   return {
     ...state,
     todos: [
       ...todos.slice(0, index),
-      { ...todos[index], completed },
+      todo,
       ...todos.slice(index + 1)
     ]
   };

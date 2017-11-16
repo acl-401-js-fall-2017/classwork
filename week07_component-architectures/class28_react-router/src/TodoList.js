@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import Todo from './Todo';
 import AddItem from './AddItem';
-import { loadTodos, addTodo, removeTodo, changeTodoCompletion } from './todo.actions';
+import { todoApi } from './api';
+import { addTodo, removeTodo, updateTodo } from './todo.actions';
 
 export default class TodoList extends PureComponent {
   constructor() {
@@ -11,23 +12,31 @@ export default class TodoList extends PureComponent {
     };
   }
 
-  componentDidMount() {
-    const newState = loadTodos(this.state, this.props.match.params.id);
+  async componentDidMount() {
+    const todos = await todoApi.get(this.getListId());
+    this.setState({ todos });
+  }
+
+  getListId() {
+    return this.props.match.params.id;
+  }
+
+  handleAdd = async title => {
+    const todo = await todoApi.add(this.getListId(), { title, completed: false });
+    const newState = addTodo(this.state, todo);
     this.setState(newState);
   }
 
-  handleAdd = title => {
-    const newState = addTodo(this.state, title);
-    this.setState(newState);
-  }
-
-  handleRemove = id => {
+  handleRemove = async id => {
+    await todoApi.remove(this.getListId(), id);
     const newState = removeTodo(this.state, id);
     this.setState(newState);
   }
 
-  handleComplete = (id, completed) => {
-    const newState = changeTodoCompletion(this.state, { _id: id, completed });
+  handleComplete = async (id, completed) => {
+    const todo = this.state.todos.find(t => t._id === id);
+    const updated = await todoApi.update(this.getListId(), { ...todo, completed });
+    const newState = updateTodo(this.state, updated);
     this.setState(newState);
   }
 
