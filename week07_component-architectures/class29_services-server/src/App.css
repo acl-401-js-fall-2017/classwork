@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40px;
+}
+
+.App-header {
+  background-color: steelblue;
+  height: 120px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+nav {
+  margin: 10px 0;
+}
+nav > li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.nav-link:visited {
+  color: white;
+}
+
+.nav-link.active {
+  border: 1px solid white;
+}
+
+.albums {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.albums > li {
+  list-style: none;
+  margin: 5px 0;
+  padding: 10px;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+  background: rgba(249, 171, 77, 0.5);
+}
+
+.albums > li:hover {
+  background: rgba(249, 171, 77, .8);
+  color: white;
+}
+
+.albums > li > button {
+  float: right;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
