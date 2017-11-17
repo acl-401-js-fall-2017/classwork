@@ -19,7 +19,7 @@ Data Services and Full Stack
 * Service calls and actions
     * Until redux:
         * component calls service
-        * then calls action
+        * then calls "reducer" action
 
 ### Full Stack
 

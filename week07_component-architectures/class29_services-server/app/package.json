@@ -2,6 +2,7 @@
   "name": "class27_immutable-data",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -10,8 +11,10 @@
     "shortid": "^2.2.8"
   },
   "scripts": {
+    "copy": "rm -rf ../server/public && cp -R build ../server/public",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "cra:build": "react-scripts build",
+    "build": "npm run cra:build && npm run copy",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

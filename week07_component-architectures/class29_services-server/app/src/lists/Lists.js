@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import { listApi } from './api';
-import { addList, removeList } from './list.actions';
-import AddItem from './AddItem';
+import listApi from '../services/list-api';
+import { loadLists, addList, removeList } from './list.actions';
+import AddItem from '../forms/AddItem';
 
-export default class ListOfTodos extends PureComponent {
+export default class Lists extends PureComponent {
   
   state = {
     lists: []
@@ -12,10 +12,11 @@ export default class ListOfTodos extends PureComponent {
 
   async componentDidMount() {
     const lists = await listApi.get();
-    this.setState({ lists });
+    const newState = loadLists(this.state, lists);
+    this.setState(newState);
   }
   
-  handleAdd = async title => {
+  handleAdd = async ({ title }) => {
     const list = await listApi.add({ title });
     const newState = addList(this.state, list);
     this.setState(newState);
@@ -32,16 +33,18 @@ export default class ListOfTodos extends PureComponent {
 
     return (
       <section>
-        <h3>My List of Todo Lists</h3>
-        <ul className="albums">
+        <h3>My List of Task Lists</h3>
+        <ul className="items">
           {lists.map(list => (
             <li key={list._id}>
-              <Link to={`/todos/${list._id}`}>{list.title}</Link>
+              <Link to={`/tasks/${list._id}`}>{list.title}</Link>
               <button onClick={() => this.handleRemove(list._id)}>X</button>
             </li>
           ))}
         </ul>
-        <AddItem type="list" onAdd={this.handleAdd}/>
+        <AddItem type="list" onAdd={this.handleAdd}>
+          <input name="title"/>
+        </AddItem>
       </section>
     );
   }

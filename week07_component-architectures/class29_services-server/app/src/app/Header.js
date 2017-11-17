@@ -16,7 +16,7 @@ export default function Header() {
         <li>
           <HeaderLink exact to="/">Home</HeaderLink>
         </li>
-        <li><HeaderLink to="/todos">Todos</HeaderLink></li>
+        <li><HeaderLink to="/tasks">Tasks</HeaderLink></li>
       </nav>
     </header>
   );
