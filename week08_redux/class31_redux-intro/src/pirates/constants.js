@@ -1,0 +1,3 @@
+export const PIRATE_ADD = 'PIRATE_ADD';
+export const PIRATE_UPDATE = 'PIRATE_UPDATE';
+export const PIRATE_REMOVE = 'PIRATE_REMOVE';

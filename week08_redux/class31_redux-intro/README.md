@@ -106,6 +106,6 @@ Using `react-redux`, "connect" to component (via implicit container)
 1. `store` - takes `reducer`
 1. `reducer`(s) - takes actions with `type` and `payload`
 1. `constants` - "type" identifier for each `action`
-1. `action`(s) - take (optional) parameter arguments and returns
+1. `action creators`(s) - take (optional) parameter arguments and returns
 action with `type` and `payload`
 1. `connect` - a utility for interfacing `redux` store with `react` components

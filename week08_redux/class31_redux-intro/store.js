@@ -1,19 +1,19 @@
 const { createStore } = require('redux');
 
 function countReducer(state = 0, { type }) {
-    switch(type) {
+  switch(type) {
     case 'INCREMENT':
-        return state + 1;
+      return state + 1;
     case 'DECREMENT':
-        return state - 1;
+      return state - 1;
     default: 
-        return state;
-    }
+      return state;
+  }
 }
 
 const store = createStore(countReducer);
 store.subscribe(() => {
-    console.log('store changed', store.getState());
+  console.log('store changed', store.getState());
 });
 
 store.dispatch({ type: 'DECREMENT' });
