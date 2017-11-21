@@ -27,7 +27,7 @@ export default class PirateForm extends PureComponent {
     event.preventDefault();
     const { _id, timestamp, name, role } = this.state;
     this.props.onComplete({ _id, timestamp, name, role });
-x``  }
+  }
 
   handleChange = ({ target: input }) => {
     this.setState({
