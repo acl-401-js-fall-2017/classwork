@@ -5,12 +5,6 @@ Redux State Management
 * Makeup Backend Quiz
 * ?
 
-## Questions/Feedback
-
-## Misc React
-
-* Use [function form of `setState`](https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous) if you are relying on existing state.
-
 ## Redux Review
 
 ### Store
