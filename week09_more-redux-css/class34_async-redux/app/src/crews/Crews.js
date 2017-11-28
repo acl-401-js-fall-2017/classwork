@@ -5,6 +5,7 @@ import AddItem from '../AddItem';
 import { addCrew } from './actions';
 
 class Crews extends PureComponent {
+  // TODO: replace with server call...
   componentDidMount() {
     this.props.addCrew({ name: 'straw hats' });
   }
