@@ -1,9 +1,12 @@
+export const CREW_LOAD = 'CREW_LOAD';
 export const CREW_ADD = 'CREW_ADD';
 export const CREW_REMOVE = 'CREW_REMOVE';
 export const CREW_UPDATE = 'CREW_UPDATE';
 
 export default function crews(state = [], { type, payload }) {
   switch(type) {
+    case CREW_LOAD:
+      return payload;
     case CREW_ADD:
       return [...state, payload];
     case CREW_REMOVE:

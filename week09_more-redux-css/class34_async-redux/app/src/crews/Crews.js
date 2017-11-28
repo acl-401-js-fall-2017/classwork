@@ -2,12 +2,12 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Pirates from '../pirates/Pirates';
 import AddItem from '../AddItem';
-import { addCrew } from './actions';
+import { addCrew, loadCrews } from './actions';
 
 class Crews extends PureComponent {
-  // TODO: replace with server call...
+
   componentDidMount() {
-    this.props.addCrew({ name: 'straw hats' });
+    this.props.loadCrews();
   }
 
   render() {
@@ -30,5 +30,5 @@ class Crews extends PureComponent {
 
 export default connect(
   state => ({ crews: state.crews }),
-  { addCrew }
+  { addCrew, loadCrews }
 )(Crews);

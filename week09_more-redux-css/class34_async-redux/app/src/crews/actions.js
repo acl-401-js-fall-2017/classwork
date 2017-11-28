@@ -1,11 +1,20 @@
-import { CREW_ADD, CREW_REMOVE } from './reducer';
-import shortid from 'shortid';
+import { CREW_LOAD, CREW_ADD, CREW_REMOVE } from './reducer';
+import crewsApi from '../services/crews-api';
+
+export function loadCrews() {
+  return async dispatch => {
+    const crews = await crewsApi.get();
+    dispatch({ type: CREW_LOAD, payload: crews });
+  };
+}
 
 export function addCrew(crew) {
-  crew._id = shortid.generate();
-  return {
-    type: CREW_ADD,
-    payload: crew
+  return async dispatch => {
+    const saved = await crewsApi.add(crew);
+    dispatch({
+      type: CREW_ADD,
+      payload: saved
+    });
   };
 }
 
