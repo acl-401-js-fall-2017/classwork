@@ -1,6 +1,20 @@
 Redux Review and Redux Thunk
 ===
 
+## Misc
+* Make up Backend Quiz:
+    1. Email or DM me on Ryver letting me know _when_ (day/time) you plan
+    on taking the quiz
+    1. I will email you link at designated time
+* Residency Opportunities
+* Will go over Devsigner opportunity this week
+
+## Agenda
+
+1. Review redux 
+1. Answer any questions you are having
+1. Introduce redux middleware
+
 ## Redux Review
 
 ### Three Principals
