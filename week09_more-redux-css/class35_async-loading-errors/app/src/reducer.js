@@ -10,7 +10,7 @@ export function response(state = null, { type, payload }) {
   }
 }
 
-export function loading(state = false, { type, payload }) {
+export function loading(state = false, { type }) {
   switch(type) {
     case LOADING:
       return true;

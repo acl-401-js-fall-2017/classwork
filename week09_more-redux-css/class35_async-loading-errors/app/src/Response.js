@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { loadResponse } from './actions';
 
 class Response extends PureComponent {
   render() {
@@ -13,7 +14,7 @@ class Response extends PureComponent {
 
 export default connect(
   state => ({ response: state.response }),
-  null
+  { loadResponse }
 )(Response);
 
 
