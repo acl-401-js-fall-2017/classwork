@@ -29,6 +29,8 @@
 
 main {
   position: relative;
+  text-align: left;
+  margin: 20px;
   height: 500px;
 }
 

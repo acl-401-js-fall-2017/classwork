@@ -6,7 +6,7 @@ const errorHandler = require('./utils/error-handler');
 app.use(morgan('dev'));
 app.use(express.static('./public'));
 
-app.get('/test', (req, res, next) => {
+app.get('/api/test', (req, res, next) => {
   const { wait, unexpected, validation } = req.query;
   if(wait) {
     setTimeout(() => res.json({ answer: `waited for ${wait}ms`}), wait);

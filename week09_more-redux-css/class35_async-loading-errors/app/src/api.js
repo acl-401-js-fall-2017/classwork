@@ -1,4 +1,4 @@
-
+import qs from 'query-string';
 const url = '/api';
 
 const wrap = async promise => {
@@ -14,7 +14,7 @@ const wrap = async promise => {
   // throw error;
 };
 
-export default {
+const api = {
   get(path) {
     return wrap(
       fetch(`${url}${path}`)
@@ -38,5 +38,11 @@ export default {
         method: 'delete'
       })
     );
+  }
+};
+
+export const responseApi = {
+  get(options = {}) {
+    return api.get(`/test?${qs.stringify(options)}`);
   }
 };

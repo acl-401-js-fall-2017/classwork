@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import { loadResponse } from './actions';
 
 class Response extends PureComponent {
+
+  componentDidMount() {
+    this.props.loadResponse({ wait: 1500 });
+  }
+
   render() {
     const { response } = this.props;
 
