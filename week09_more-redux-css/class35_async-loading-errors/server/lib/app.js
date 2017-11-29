@@ -9,7 +9,7 @@ app.use(express.static('./public'));
 app.get('/test', (req, res, next) => {
   const { wait, unexpected, validation } = req.query;
   if(wait) {
-    setTimeout(() => res.json({ response: `waited for ${wait}ms`}));
+    setTimeout(() => res.json({ answer: `waited for ${wait}ms`}), wait);
   }
   else if(unexpected) {
     throw new Error(unexpected);
@@ -18,7 +18,7 @@ app.get('/test', (req, res, next) => {
     next({ code: 400, error: validation });
   }
   else {
-    res.json({ response: 'vanilla response'});
+    res.json({ answer: 'vanilla response'});
   }
 });
 
