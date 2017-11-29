@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const errorHandler = require('error-handler');
+const errorHandler = require('./error-handler');
 
 app.use(express.static('./public'));
 app.use(bodyParser.json());

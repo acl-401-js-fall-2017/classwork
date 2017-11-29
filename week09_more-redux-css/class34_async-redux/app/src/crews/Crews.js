@@ -14,7 +14,7 @@ class Crews extends PureComponent {
     const { crews, addCrew, error } = this.props;
     return (
       <section>
-        { error && <pre style={{ color: 'red' }}>{error}</pre> }
+        { error && <div className="error">{error}</div> }
         <AddItem type="crew" onAdd={addCrew}/>
         <ul>
           {crews.map(crew => (
@@ -30,6 +30,9 @@ class Crews extends PureComponent {
 }
 
 export default connect(
-  state => ({ crews: state.crews }),
+  state => ({ 
+    crews: state.crews,
+    error: state.crewsError
+  }),
   { addCrew, loadCrews }
 )(Crews);
