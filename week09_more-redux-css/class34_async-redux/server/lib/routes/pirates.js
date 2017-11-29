@@ -3,44 +3,41 @@ const router = Router();
 const Pirate = require('../models/pirate');
 
 router
-    .get('/', (req, res) => {
+    .get('/', (req, res, next) => {
         const query = {};
         if(req.query) query.crew = req.query.crew;
         
         Pirate.find(query)
             .lean()
-            .then(pirates => res.json(pirates));
+            .then(pirates => res.json(pirates))
+            .catch(next);
     })
     
-    .get('/:id', (req, res) => {
+    .get('/:id', (req, res, next) => {
         Pirate.findById(req.params.id)
             .lean()
             .then(pirate => {
                 if(!pirate) {
-                    res.statusCode = 404;
-                    res.send(`id ${req.params.id} does not exist`);
+                    throw { code: 404, error: `id ${req.params.id} does not exist` };
                 }
                 else res.json(pirate);
-            });
+            })
+            .catch(next);
     })
     
-    .post('/', (req, res) => {
+    .post('/', (req, res, next) => {
         new Pirate(req.body).save()
             .then(pirate => res.json(pirate))
-            .catch(err => {
-                res.statusCode = 400;
-                res.json({
-                    errors: err.errors
-                });
-            });
+            .catch(next);
     })
     
-    .delete('/:id', (req, res) => {
+    .delete('/:id', (req, res, next) => {
         Pirate.findByIdAndRemove(req.params.id)
             .then(result => {
                 const exists = result != null;
                 res.json({ removed: exists });
-            });
+            })
+            .catch(next);
     });
 
 module.exports = router;

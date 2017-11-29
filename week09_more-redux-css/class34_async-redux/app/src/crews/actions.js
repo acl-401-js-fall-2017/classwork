@@ -1,20 +1,36 @@
-import { CREW_LOAD, CREW_ADD, CREW_REMOVE } from './reducer';
+import { CREW_LOAD, CREW_ADD, CREW_REMOVE, CREW_ERROR } from './reducer';
 import crewsApi from '../services/crews-api';
 
 export function loadCrews() {
   return async dispatch => {
-    const crews = await crewsApi.get();
-    dispatch({ type: CREW_LOAD, payload: crews });
+    try {
+      const crews = await crewsApi.get();
+      dispatch({ type: CREW_LOAD, payload: crews });
+    }
+    catch(err) {
+      dispatch({
+        type: CREW_ERROR,
+        payload: err
+      });
+    }
   };
 }
 
 export function addCrew(crew) {
   return async dispatch => {
-    const saved = await crewsApi.add(crew);
-    dispatch({
-      type: CREW_ADD,
-      payload: saved
-    });
+    try {
+      const saved = await crewsApi.add(crew);
+      dispatch({
+        type: CREW_ADD,
+        payload: saved
+      });
+    }
+    catch(err) {
+      dispatch({
+        type: CREW_ERROR,
+        payload: err
+      });
+    }
   };
 }
 

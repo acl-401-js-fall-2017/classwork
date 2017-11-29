@@ -1,10 +1,12 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import crews from './crews/reducer';
+import { crews, crewsLoading, crewsError } from './crews/reducer';
 import pirates from './pirates/reducer';
 
 const rootReducer = combineReducers({
   crews,
+  crewsLoading,
+  crewsError,
   pirates
 });
 

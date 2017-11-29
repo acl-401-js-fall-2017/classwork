@@ -11,9 +11,10 @@ class Crews extends PureComponent {
   }
 
   render() {
-    const { crews, addCrew } = this.props;
+    const { crews, addCrew, error } = this.props;
     return (
       <section>
+        { error && <pre style={{ color: 'red' }}>{error}</pre> }
         <AddItem type="crew" onAdd={addCrew}/>
         <ul>
           {crews.map(crew => (

@@ -1,15 +1,10 @@
-import { CREW_ADD, CREW_LOAD, CREW_REMOVE } from '../crews/reducer';
+import { CREW_ADD, CREW_REMOVE } from '../crews/reducer';
 export const PIRATE_LOAD = 'PIRATE_LOAD';
 export const PIRATE_ADD = 'PIRATE_ADD';
 export const PIRATE_REMOVE = 'PIRATE_REMOVE';
 
 export default function pirates(state = {}, { type, payload }) {
   switch(type) {
-    // case CREW_LOAD:
-    //   return payload.reduce((dictionary, crew) => {
-    //     dictionary[crew._id] = [];
-    //     return dictionary;
-    //   }, {});
     case CREW_ADD:
       return {
         ...state,
