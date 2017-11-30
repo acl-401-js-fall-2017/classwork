@@ -23,7 +23,10 @@ class App extends Component {
           }
           {error && 
             <div className="error">
-              {error.error ? error.error : error}
+              {Array.isArray(error) 
+                ? <ul>error.map(err => <li>err</li>)</ul>
+                : error.error ? error.error : error
+              }
             </div>
           }
         </main>
