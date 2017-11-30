@@ -1,4 +1,4 @@
-import { RESPONSE_LOAD, LOADING } from './reducer';
+import { RESPONSE_LOAD, LOADING, ERROR } from './reducer';
 import { responseApi } from './api';
 
 export function loadResponse(options) {
@@ -8,12 +8,23 @@ export function loadResponse(options) {
     dispatch({ type: LOADING });
 
     // talk to server via api...
-    const response = await responseApi.get(options);
+    try {
+      const response = await responseApi.get(options);
+      // dispatch load action when done...
+      dispatch({ 
+        type: RESPONSE_LOAD, 
+        payload: response
+      });
+    }
+    catch(err) {
+      dispatch({
+        type: ERROR,
+        payload: err
+      });
 
-    // dispatch load action when done...
-    dispatch({ 
-      type: RESPONSE_LOAD, 
-      payload: response
-    });
+      throw err;
+    }
+
+
   };
 }

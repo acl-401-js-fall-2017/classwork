@@ -16,13 +16,14 @@ export function loading(state = false, { type }) {
     case LOADING:
       return true;
     case RESPONSE_LOAD:
+    case ERROR:
       return false;
     default:
       return state;
   }
 }
 
-export function error(state = 'the error', { type, payload }) {
+export function error(state = null, { type, payload }) {
   switch(type) {
     case ERROR:
       return payload;

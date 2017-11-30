@@ -54,3 +54,7 @@ main {
   align-items: center;
   animation: App-logo-spin infinite 1s linear;
 }
+
+form {
+  padding: 20px;
+}

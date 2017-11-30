@@ -23,7 +23,7 @@ class App extends Component {
           }
           {error && 
             <div className="error">
-              {error}
+              {error.error ? error.error : error}
             </div>
           }
         </main>

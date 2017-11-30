@@ -3,15 +3,15 @@ const url = '/api';
 
 const wrap = async promise => {
   const response = await promise;
-  /*if(response.ok)*/ return response.json();
+  if(response.ok) return response.json();
 
-  // const contentType = response.headers.get('content-type');
+  const contentType = response.headers.get('content-type');
   
-  // const error = contentType && contentType.startsWith('application/json')
-  //   ? await response.json()
-  //   : await response.text();
+  const error = contentType && contentType.startsWith('application/json')
+    ? await response.json()
+    : await response.text();
 
-  // throw error;
+  throw error;
 };
 
 const api = {
