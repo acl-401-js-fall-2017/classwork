@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
+    const { loading, error } = this.props;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -14,9 +16,14 @@ class App extends Component {
         </header>
         <main>
           <Response/>
-          {this.props.loading && 
+          {loading && 
             <div className="loader">
               Loading...
+            </div>
+          }
+          {error && 
+            <div className="error">
+              {error}
             </div>
           }
         </main>
@@ -26,6 +33,9 @@ class App extends Component {
 }
 
 export default connect(
-  state => ({ loading: state.loading }),
+  state => ({ 
+    loading: state.loading,
+    error: state.error
+  }),
   null
 )(App);

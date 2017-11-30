@@ -4,16 +4,19 @@ import { loadResponse } from './actions';
 
 class Response extends PureComponent {
 
-  componentDidMount() {
-    this.props.loadResponse({ wait: 1500 });
-  }
-
   render() {
-    const { response } = this.props;
+    const { response, loadResponse } = this.props;
 
-    return response
+    const showResponse = response
       ? <pre>{JSON.stringify(response, true, 2)}</pre>
       : <div>No response</div>;
+
+    return (
+      <div>
+        <button onClick={() => loadResponse({ wait: 1500 })}>Load with Wait</button>
+        {showResponse}
+      </div>
+    );
   }
 }
 

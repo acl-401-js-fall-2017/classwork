@@ -1,5 +1,6 @@
 export const RESPONSE_LOAD = 'RESPONSE_LOAD';
 export const LOADING = 'LOADING';
+export const ERROR = 'ERROR';
 
 export function response(state = null, { type, payload }) {
   switch(type) {
@@ -16,6 +17,18 @@ export function loading(state = false, { type }) {
       return true;
     case RESPONSE_LOAD:
       return false;
+    default:
+      return state;
+  }
+}
+
+export function error(state = 'the error', { type, payload }) {
+  switch(type) {
+    case ERROR:
+      return payload;
+    case RESPONSE_LOAD:
+    case LOADING:
+      return null;
     default:
       return state;
   }
