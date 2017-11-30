@@ -1,6 +1,7 @@
 {
   "extends": ["eslint:recommended", "react-app"],
   "rules": {
+      "no-unused-vars": "error",
       "no-console": "warn",
       "indent": ["error", 2, { "SwitchCase": 1 }],
       "quotes": ["error", "single"],

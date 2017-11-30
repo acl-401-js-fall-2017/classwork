@@ -31,6 +31,7 @@ class Response extends PureComponent {
           }
           catch(err) {
             // no-op
+            console.log('FORM', err)
           }
         }}>
           <input name="answer"/>
