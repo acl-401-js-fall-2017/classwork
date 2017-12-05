@@ -1,0 +1,9 @@
+$color: green;
+
+.greeting {
+  color: $color;
+
+  span {
+    font-weight: bolder;
+  }
+}
