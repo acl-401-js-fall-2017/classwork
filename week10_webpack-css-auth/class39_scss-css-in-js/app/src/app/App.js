@@ -6,6 +6,10 @@ import Crews from '../crews/Crews';
 import { connect } from 'react-redux';
 
 class App extends Component {
+  handleThing = () => {
+    this.header.style.color = 'red';
+  }
+
   render() {
     const { loading, error } = this.props;
 

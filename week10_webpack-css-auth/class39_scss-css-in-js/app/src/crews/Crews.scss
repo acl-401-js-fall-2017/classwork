@@ -1,0 +1,12 @@
+@import 'colors';
+
+:local(.crews) {
+  ul {
+    margin: 10px;
+    padding: 0;
+    
+    li.crew {
+      color: $primary;
+    }
+  }
+}

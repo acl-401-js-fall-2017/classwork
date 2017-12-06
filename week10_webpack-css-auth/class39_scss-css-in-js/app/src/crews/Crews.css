@@ -1,0 +1,5 @@
+:local(.crews) ul {
+  margin: 10px;
+  padding: 0; }
+  :local(.crews) ul li.crew {
+    color: steelblue; }

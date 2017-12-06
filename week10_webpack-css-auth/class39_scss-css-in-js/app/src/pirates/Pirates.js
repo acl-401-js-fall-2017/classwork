@@ -18,7 +18,7 @@ class Pirates extends PureComponent {
         <ul>
           {pirates.map(pirate => (
             <li key={pirate._id}>
-              {pirate.name}
+              <h2>{pirate.name}</h2>
               <button onClick={() => removePirate(pirate._id)}>X</button>
             </li>
           ))}
