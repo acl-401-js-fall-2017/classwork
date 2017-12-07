@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "MONGODB_URI=mongodb://localhost/image-gallery-test mocha",
+    "test:debug": "MONGODB_URI=mongodb://localhost/image-gallery-test mocha --debug-brk",
+    "test:watch": "MONGODB_URI=mongodb://localhost/image-gallery-test nodemon --exec mocha"
+  },
+  "author": "Marty Nelson <marty@martypdx.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jsonwebtoken-promisified": "^1.0.3",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.12.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  }
+}

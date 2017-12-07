@@ -1,0 +1,28 @@
+{
+    "env": {
+        "node": true,
+        "mocha": true,
+        "es6": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-console": "warn",
+        "indent": [
+            "error",
+            4 
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
