@@ -1,0 +1,31 @@
+{
+  "name": "node-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "npm run mocha",
+    "mocha": "mocha --recursive",
+    "test:dev": "nodemon --exec 'npm run mocha'",
+    "test:unit": "nodemon --exec 'npm run mocha -- ./test/unit'",
+    "test:e2e": "nodemon --exec 'npm run mocha -- ./test/e2e'",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "author": "Marty Nelson <marty@martypdx.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.12.3",
+    "morgan": "^1.9.0"
+  }
+}

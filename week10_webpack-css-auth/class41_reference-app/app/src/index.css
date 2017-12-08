@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.error {
+  color: red;
+  font-family: monospace;
+  padding: 20px;
+}
